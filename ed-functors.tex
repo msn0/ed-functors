@@ -1,0 +1,1878 @@
+\voffset=-15 true mm \hoffset=0 true mm
+\documentclass[oneside,12pt, titlepage]{book}
+\usepackage[cp1250]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{pifont}
+\usepackage{ntheorem}
+\usepackage{hyperref}
+\usepackage{figsize}
+\usepackage{mathrsfs}
+%\usepackage[cmtip, arrow]{xy}
+\usepackage{pb-diagram, pb-xy}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{makeidx}
+\usepackage{multicol}
+\usepackage{parcolumns}
+\usepackage{pictexwd,dcpic}
+\definecolor{szary}{rgb}{0.5,0.5,0.5}
+\definecolor{pomaranczowy1}{rgb}{0.9,0.4,0}
+\definecolor{zielony1}{rgb}{0,0.4,0}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it} \makeindex
+%\usepackage{pst-3dplot}
+%\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=red,urlcolor=black}
+\hypersetup{colorlinks=false, linkcolor=black, bookmarks=false, pdftitle=Funktory równoœciowo definiowalne, pdfauthor=Micha³ Jezierski, pdfsubject=Funktory równoœciowo definiowalne, pdffitwindow=true, urlcolor=black} \textwidth400pt \textheight630pt
+\topmargin30pt \leftmargin0pt
+
+
+\newcommand{\barraA}{\vrule height2em width0em depth0em}
+\newcommand{\barraB}{\vrule height1.6em width0em depth0em}
+\newcommand{\dowod}{\begin{it}dowód: \end{it}}
+\newcommand{\map}{\operatorname{Map}}
+\newcommand{\Hom}{\operatorname{Hom}_R}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\s}{\sum_{i\in I}}
+\newcommand{\sx}{\underset{i\in I}{\sum}}
+\newcommand{\sj}{\sum_{j}}
+\newcommand{\sk}{\sum_{k}}
+\newcommand{\rmod}{R\operatorname{-Mod}}
+\newcommand{\cnd}{\;$\Box$}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\Lim}{\underset{\longrightarrow}{\lim}}
+\begin{document}
+\baselineskip20pt
+\newtheorem{tw}{Twierdzenie}
+\newtheorem{lem}{Lemat}
+\newtheorem{wn}{Wniosek}
+\newtheorem{df}{Definicja}
+\theoremheaderfont{\scshape} \theorembodyfont{\normalfont\slshape} %%@
+\newtheorem{ex}{Przyk³ad}
+\newcommand{\margines}[1]{\leavevmode\marginpar{\tiny\raggedright#1\par}}
+%\numberwithin{equation}{section}
+
+\titlepage \begin{center}\textsc{Uniwersytet
+Kazimierza Wielkiego w Bydgoszczy\\Wydzia³ Matematyki, Fizyki i Techniki \\
+Instytut Matematyki} \vskip120pt \Large{\textsl{Micha³ Jezierski}}\vskip50pt
+\Huge{\textsl{Funktory równoœciowo definiowalne}}
+\end{center}
+\vskip150pt
+
+
+\begin{multicols}{2} \begin{verbatim}
+
+
+
+\end{verbatim}
+Praca magisterska \\
+napisana pod kierunkiem \\
+prof. dr hab. Andrzeja Prószyñskiego
+\end{multicols}
+
+\begin{center}
+\vskip110pt \textsc{Bydgoszcz 2008}
+\end{center} \tableofcontents\addcontentsline{toc}{chapter}{Wstêp}
+
+\chapter*{Wstêp}\baselineskip20pt
+\hskip20pt Podstawowym przedmiotem naszych rozwa¿añ s¹ funktory wyznaczone przez równoœciowo definiowalne klasy odwzorowañ. Mówimy, ¿e klasa odwzo\-rowañ pomiêdzy $R$-modu³ami $X$ i $Y$ jest równoœciowo definiowalna, je¿eli spe³nia okreœlony zestaw warunków typu równoœci, tzn. warunków postaci
+$$\sum_{k=1}^{n}r_{ij}f\big(\sum_{j=1}^{m}s_{ijk} x_k\big)=0,\qquad i\in I,$$
+dla pewnych ustalonych elementów $r_{ij},s_{ijk}$ pierœcienia $R$ oraz dowolnych ele\-mentów $x_k\in X$. Przyk³adem równoœciowo definiowalnej klasy odwzorowañ mo¿e byæ klasa $R$-homomorfizmów, klasa odwzorowañ kwadratowych, b¹dŸ klasa wszystkich odwzorowañ dla pustego uk³adu warunków.\\
+
+Ka¿da równoœciowo definiowalna klasa odwzorowañ wyznacza funktor dwóch zmiennych, który dowolnym $R$-modu³om $X$ i $Y$ przyporz¹dkowuje zbiór wszyst\-kich odwzorowañ z $X$ do $Y$ bêd¹cych elementami danej równoœciowo defi\-niowalnej klasy. Funktor ten nazywamy równoœciowo definiowalnym lub krótko ED-funktorem, przy czym pojêcie to pochodzi od A. Prószyñskiego (\cite{4},\cite{5}). Okazuje siê, ¿e ED-funktory s¹ reprezentowalne. Celem tej pracy jest udowodnienie Twierdzenia \ref{tw4}, które podaje warunki równowa¿ne charakteryzuj¹ce funktory równoœciowo definiowalne. Jeden z tych warunków mówi, ¿e funktor reprezentuj¹cy zachowuje granice proste i ci¹gi Grothendiecka pierwszego rodzaju.\\
+
+W pierwszych rozdzia³ach przedstawiamy kolejno podstawy teorii modu³ów, podstawy teorii funktorów oraz ci¹gi Grothendiecka i granice proste. Zasadnicz¹ rolê odgrywa funktor modu³u wolnego $\F$, reprezentuj¹cy funktor $\map$ wszystkich odwzorowañ pomiêdzy $R$-modu³ami, który omawiamy w Rozdziale 4. Natomiast w ostatnim rozdziale  omawiamy ED-funktory i dowodzimy wspomnianego powy¿ej Twierdzenia \ref{tw4}, które je charakteryzuje.
+
+Praca jest prób¹ mo¿liwie najbardziej elementarnego wy³o¿enia wyników pochodz¹cych z paragrafu 3.1 ksi¹¿ki \cite{3} (str. 72-80). W zwi¹zku z tym wiele fragmentów dowodów zosta³o ca³kowicie zmienionych, a inne zosta³y przedstawione bardziej szczegó³owo. Podjêto te¿ próbê modyfikacji pewnych stosowa\-nych pojêæ w celu nadania im wiêkszej operatywnoœci w tej pracy. Przyk³adem jest pojêcie zachowywania granic prostych przez funktor.
+
+\chapter{Modu³y}
+
+\hskip20pt W rozdziale pierwszym wprowadzamy podstawowe pojêcia algebry prze\-miennej. Zak³adamy przy tym, ¿e znane s¹ fakty z podstawowego kursu al\-gebry. Rozdzia³ w znacznej czêœci oparty jest na ksi¹¿ce Balcerzyka \cite{2}. Pewne podstawowe fakty pochodz¹ z ksi¹¿ki \cite{1}. Poza tym wprowadzamy $R$-modu³ $\map(X,Y)$ i dowodzimy pewnych jego elementarnych w³asnoœci.\vskip6pt\noindent
+Niech $R$ bêdzie pierœcieniem przemiennym z jedynk¹.
+\begin{df}
+$R$-modu³em\index{modu³} nazywamy trójkê
+$(X,+,\cdot)$, w której $X$ jest niepustym zbiorem, $+:X\times X\rightarrow X$,
+$\cdot:R\times X\rightarrow X$ oraz dla wszystkich elementów $r,r'\in R$,
+$x,x'\in X$ spe³nione s¹ nastêpuj¹ce warunki:
+\begin{enumerate}
+    \item $X$ jest grup¹ abelow¹ wzglêdem dzia³ania $+$,
+    \item $r(x+x')=rx+rx'$,
+    \item $(r+r')x=rx+r'x$,
+    \item $(rr')x=r(r'x)$,
+    \item $1x=x$.
+\end{enumerate}
+\end{df}
+W dalszej czêœci zamiast pisaæ \emph{''$X$ jest $R$-modu³em''} bêdziemy czêsto pisali $X\!\in\!\rmod$. Element neutralny wzglêdem dodawania bêdziemu oznaczaæ $0$ i nazywaæ zerem $R$-modu³u $X$, natomiast element przeciwny do $x$ bêdziemy oznaczaæ przez $-x$.
+\begin{df}
+Niech $X$ bêdzie $R$-modu³em. Podzbiór $X_0$ modu³u $X$ nazywamy podmodu³em modu³u $X$, o ile dla dowolnych $x,x'\in X_0$ oraz $r\in R$ spe³nione s¹ nastêpuj¹ce warunki:
+\begin{enumerate}
+\item[1.] $x+x'\in X',$
+\item[2.] $rx\in X'$.
+\end{enumerate}
+\end{df}
+Bezpoœrednio sprawdza siê, ¿e podmodu³ $X'$ modu³u $X$ jest te¿ $R$-modu³em wzglêdem dzia³añ okreœlonych w $X$.\vskip6pt\noindent
+Niech $X,Y\in\rmod$. Homomorfizmem $R$-modu³ów (lub krótko $R$-homomor\-fizmem) nazywamy odwzorowanie $f : X\rightarrow Y$ takie, ¿e $f(x+x')=f(x)+f(x')$ oraz $f(rx)=rf(x)$ dla wszystkich $x,x'\in X$, $r\in R$. \emph{J¹drem} $R$-homomorfizmu $f:X\rightarrow Y$ nazywamy zbiór $\ker(f)=\{x\in X\,;\,f(x)=0\}=f^{-1}(0)$, natomiast zbiór $\operatorname{im}(f)=\{f(x)\,;\,x\in X\}$ nazywamy jego \emph{obrazem}. J¹dro homomorfizmu $f:X\rightarrow Y$ jest podmodu³em modu³u $X$, natomiast $\operatorname{im}(f)$ jest podmodu³em modu³u $Y$. \vskip6pt\noindent $R$-homomorfizm $f: X\rightarrow Y$
+nazywamy \emph{monomorfizmem}, jeœli $\ker(f)=0$, tzn. $f$ jest
+ró¿nowartoœciowe, a \emph{epimorfizmem}, gdy $\mbox{im}(f)=Y$, tzn. $f$ jest
+\emph{na}. \\ $R$-homomorfizm $f$ jest izomorfizmem, jeœli jest monomorfizmem i
+epimorfizmem. Istnieje wówczas odwzorowanie odwrotne $f^{-1}$, które te¿ jest
+homomorfizmem.\vskip6pt\noindent
+Podmodu³owi $X'$ modu³u $X$ odpowiada \textit{modu³ ilorazowy} $X/X'$, którego elementami s¹ wszystkie warstwy $\bar{x}=x+X'=\{x+x'\;;\;x'\in X'\}$ elementów $x\in X$ wzglêdem $X'$, przy czym dzia³ania okreœlone s¹ wzorami
+$$(x+X')+(x'+X')=(x+x')+X',\qquad r(x+X')=rx+X',$$
+dla dowolnych $x,x'\in X$, $r\in R$. Ponadto obowi¹zuje nastêpuj¹ca regu³a porównywania warstw:
+$$x+X'=x'+X'\;\Leftrightarrow\; x-x'\in X'.$$
+Odwzorowanie $\nu:X\rightarrow X/X'$ okreœlone wzorem $\nu(x)=x+X'$ jest $R$-ho\-momorfizmem, który nazywamy \textit{homomorfizmem kanonicznym} lub \textit{homomorfizmem naturalnym}.\vskip6pt\noindent
+Poni¿sze twierdzenie znane jest jako \textit{twierdzenie o homomorfizmach $R$-modu³ów}, a jego dowód jest analogiczny jak w teorii pierœcieni lub teorii grup.
+\begin{tw}\label{homomor}
+Niech $f:X\rightarrow Y$ bêdzie $R$-homomorfizmem oraz niech $X'$ bêdzie podmodu³em $R$-modu³u $X$. Je¿eli $X'\subset\ker(f)$, to istnieje dok³adnie jeden $R$-homomorfizm $\bar{f}:X/X'\rightarrow Y$ taki, ¿e $\bar{f}(x+X')=f(x)$. W szczególnoœci mamy izomorfizm $R$-modu³ów
+$$X\big/\ker(f)\simeq \operatorname{im}(f).$$
+\end{tw}
+\begin{lem}
+Niech $X_0$ bêdzie podzbiorem $R$-modu³u $X$. Zbiór $X'$ wszystkich elementów postaci $r_1x_1+\ldots +r_nx_n$, $r_1,\ldots,\,r_n\in R$, $x_1,\ldots,\,x_n\in X_0$, $n=1,2,\ldots$ jest podmodu³em modu³u $X$.
+\end{lem}
+\dowod Niech $x,x'\in X'$. Zatem
+$$x=r_1x_1+\ldots+r_nx_n,\quad x'=r_1'x_1'+\ldots+r_m'x_m',$$
+gdzie $r_i,r_j'\in R, x_i,x_j'\in X_0$ dla $i=1,\,\ldots,\,n$,
+$j=1,\,\ldots,\,m$. St¹d
+$$x+x'=r_1x_1+\ldots+r_nx_n+r_1'x_1'+\ldots+r_m'x_m'\in X'.$$
+Je¿eli $r\in R$, to
+$$
+\begin{aligned}rx&=r(r_1x_1+\ldots+r_nx_n)=r(r_1x_1)+\ldots+r(r_nx_n)=\\
+&=(rr_1)x_1+\ldots+(rr_n)x_n\in X'.\;\Box
+\end{aligned}
+$$
+\begin{df}
+Podmodu³ $X'$ okreœlony w powy¿szym lemacie nazywamy podmo\-du³em
+generowanym przez zbiór $X_0$, a zbiór $X_0$ nazywamy zbiorem
+generatorów podmodu³u $X'$.\\ Podmodu³
+generowany przez zbiór $\{x_1,\,\ldots ,\,x_n\}$ oznaczamy $R\{x_1,\,\ldots
+,\,x_n\}$.
+\end{df}
+Podobnie jak w teorii przestrzeni liniowych mo¿emy wprowadziæ pojêcie zew\-nêtrznej sumy prostej $R$-modu³ów $X$ i $Y$.
+\begin{df}
+Niech $X,Y\in\rmod$. Zbiór wszystkich par $(x,y)$, gdzie $x\in X$, $y\in Y$, wraz z dzia³aniami
+$$
+\begin{aligned}
+&(x,y)+(x',y')=(x+x',y+y'),\\
+&r(x,y)=(rx,ry),
+\end{aligned}
+$$
+gdzie $x,x'\in X$, $y,y'\in Y$ oraz $r\in R$, nazywamy zewnêtrzn¹ sum¹ prost¹ $R$-modu³ów $X$ i $Y$ i oznaczamy $X\oplus Y$.
+\end{df}
+Z podstawowego kursu algebry wiemy, ¿e zewnêtrzna suma prosta dwóch prze\-strzeni liniowych jest przestrzeni¹ liniow¹. Analogicznie mo¿na udowodniæ nas\-têpuj¹cy
+\begin{lem}
+Zbiór $X\oplus Y$ jest $R$-modu³em wzglêdem dzia³añ okreœlonych powy¿ej.
+\end{lem}
+Przez $\operatorname{Map}(X,Y)$ oznaczaæ bêdziemy zbiór wszystkich odwzorowañ pomiêdzy $R$-modu³ami $X$ i $Y$. Podobnie $\operatorname{Hom}_R(X,Y)$ oznaczaæ bêdzie zbiór wszystkich $R$-homomorfizmów z modu³u $X$ do $Y$. Oczywiœcie $\operatorname{Hom}_R(X,Y)\subset \operatorname{Map}(X,Y)$.
+\begin{lem}\label{lem4}
+$\map(X,Y)$ jest $R$-modu³em wzglêdem dzia³añ dodawania oraz mno¿enia odwzorowañ przez skalar, okreœlonych wzorami
+$$
+\begin{aligned}
+&(\alpha+\beta)(x)=\alpha(x)+\beta(x),\\
+&(r\alpha)(x)=r\big(\alpha(x)\big),
+\end{aligned}
+$$
+gdzie $\alpha,\beta\in\map(X,Y)$, $r\in R$ oraz $x$ jest dowolnym elementem $R$-modu³u $X$.
+\end{lem}
+\dowod Zauwa¿my, ¿e $\map(X,Y)$ jest grup¹ abelow¹ wzglêdem okreœlonego powy¿ej dodawania. Jej elementem neutralnym jest odwzorowanie zerowe, \\ $0(x)=0$ oraz dla dowolnego $\alpha\in\map(X,Y)$ okreœlone jest odwzorowanie $-\alpha$ takie, ¿e $\alpha(x)+(-\alpha)(x)=0$, tzn. $(-\alpha)(x)=-\alpha(x)$ dla dowolnego $x\in X$. Jest to oczywiœcie element przeciwny do $\alpha$. Ponadto, dla dowolnych \\ $\alpha,\beta\in\map(X,Y)$, $r,r'\in R$ oraz dla dowolnego $x\in X$ otrzymujemy
+$$
+\begin{aligned}
+\big(r(\alpha+\beta)\big)(x)&=r\big((\alpha+\beta)(x)\big)=r\big(\alpha(x)+\beta(x)\big)=r\big(\alpha(x)\big)+r\big(\beta(x)\big)=\\
+&=(r\alpha)(x)+(r\beta)(x)=(r\alpha+r\beta)(x),
+\end{aligned}
+$$
+co oznacza, ¿e $r(\alpha+\beta)=r\alpha+r\beta$. Mamy równie¿
+$$
+\begin{aligned}
+\big((r+r')\alpha\big)(x)&=(r+r')\big(\alpha(x)\big)=r\big(\alpha(x)\big)+r'\big(\alpha(x)\big)=(r\alpha)(x)+(r'\alpha)(x)=\\
+&=(r\alpha+r'\alpha)(x),
+\end{aligned}
+$$
+sk¹d $(r+r')\alpha=r\alpha+r'\alpha$. Podobnie $r(r'\alpha)=(rr')\alpha$, gdy¿
+$$
+\begin{aligned}
+\big(r(r'\alpha)\big)(x)=r\big((r'\alpha)(x)\big)=r\big(r'(\alpha(x))\big)=(rr')\big(\alpha(x)\big)=\big((rr')\alpha\big)(x).
+\end{aligned}
+$$
+Poniewa¿ $(1\alpha)(x)=1\big(\alpha(x)\big)=\alpha(x)$, zatem $1\alpha=\alpha$. \\ St¹d $\map(X,Y)\in\rmod$.\cnd\vskip6pt\noindent
+Analogicznie jak w teorii przestrzeni liniowych mo¿na wykazaæ, ¿e je¿eli \\ $f,g:X\rightarrow Y$ s¹ $R$-homomorfizmami, to $f+g:X\rightarrow Y$ oraz $rf:X\rightarrow Y$ s¹ równie¿ $R$-homomorfizmami dla $r\in R$. Poniewa¿ $\Hom(X,Y)\subset\map(X,Y)$, zatem prawdziwy jest nastêpuj¹cy
+\begin{lem}
+$\Hom(X,Y)$ jest podmodu³em $R$-modu³u $\map(X,Y)$ dla dowolnych $X,Y\in\rmod$. \cnd
+\end{lem}
+Maj¹c dane $R$-modu³y $X,Y,X',Y'$ oraz homomorfizmy $f:X'\rightarrow X$, $g\!:\!Y\!\rightarrow\!Y'$ mo¿emy okreœliæ homomorfizm $\operatorname{Map}(f,g):\operatorname{Map}(X,Y)\rightarrow\operatorname{Map}(X',Y')$, który dowolnemu $\alpha\in\operatorname{Map}(X,Y)$ przyporz¹dkowuje z³o¿enie $g\circ \alpha\circ f$. W szczególnoœci $\operatorname{Map}(\operatorname{id}_X, g)$ oznaczaæ bêdziemy przez $g_{*}$, a $\operatorname{Map}(f, \operatorname{id}_Y)$ przez $f^{*}$, przy czym $g_*(\alpha)=g\circ\alpha$ oraz $f^*(\alpha)=\alpha\circ f$.  $\operatorname{Map}(f,g)$ jest istotnie homomorfizmem, gdy¿ bior¹c $x\in X'$ oraz $\alpha,\beta\in\operatorname{Map}(X,Y)$ otrzymujemy
+$$
+\begin{aligned}
+\big(g\circ(\alpha+\beta)\circ f\big)(x)&=g\big((\alpha+\beta)(f(x))\big)=\\
+&=g\big(\alpha(f(x))+\beta(f(x))\big)=g\big(\alpha(f(x))\big)+g\big(\beta(f(x))\big)=\\
+&=(g\circ \alpha \circ f)(x)+(g\circ \beta \circ f)(x)=\\
+&=(g\circ \alpha \circ f + g\circ \beta \circ f)(x),
+\end{aligned}
+$$
+co oznacza, ¿e
+$$g\circ(\alpha+\beta)\circ f=g\circ \alpha \circ f+g\circ \beta \circ f$$
+i w rezultacie
+$$\operatorname{Map}(f,g)(\alpha+\beta)=\operatorname{Map}(f,g)(\alpha)+\operatorname{Map}(f,g)(\beta).$$
+Niech $r\in R$. Wówczas
+$$\big(g\circ (r\alpha) \circ f\big)(x)=g\big((r\alpha)(f(x))\big).$$
+Poniewa¿ $g$ jest $R$-homomorfizmem oraz $(r\alpha)(y)=r\big(\alpha(y)\big)$ dla dowolnego $y\in X$, zatem
+$$g\big((r\alpha)(f(x))\big)=r\Big(g\big(\alpha(f(x))\big)\Big).$$
+St¹d
+$$\big(g\circ(r\alpha)\circ f\big)(x)=r\Big(\big(g\circ\alpha\circ f\big)(x)\Big)$$
+i w rezultacie
+$$\operatorname{Map}(f,g)(r\alpha)=r\big(\operatorname{Map}(f,g)(\alpha)\big),$$
+co koñczy dowód faktu, ¿e $\operatorname{Map}(f,g)$ jest $R$-homomorfizmem.\vskip6pt\noindent
+Zauwa¿my, ¿e $\map(f,g)\big|\Hom(X,Y)$ jest $R$-homomorfizmem prowadz¹cym do $\Hom(X',Y')$. Homomorfizm ten oznaczaæ bêdziemy przez $\Hom(f,g)$. W szczególnoœci $\Hom(\id_X, g)$ oznaczaæ bêdziemy przez $g_{*}$, a $\Hom(f, \id_Y)$ przez $f^{*}$, przy czym $g_*(\alpha)=g\circ\alpha$ oraz $f^*(\alpha)=\alpha\circ f$.\vskip6pt\noindent
+Rozwa¿my $\alpha,\beta\in\map(X,Y)$ oraz dowolny $N\in\rmod$. Wówczas dla dowolnego $R$-homomorfizmu $f:Y\ra N$ mamy $f\circ(\alpha\pm\beta)=f\circ\alpha\pm f\circ\beta$. Powy¿sz¹ w³asnoœæ bêdziemy czêsto wykorzystywaæ w dalszych rozwa¿aniach.
+\section{Ci¹gi dok³adne}
+\begin{df}
+Mówimy, ¿e ci¹g $R$-modu³ów i $R$-homomorfizmów (skoñczony lub nieskoñczony)
+
+\begin{equation}\label{exact}
+\begindc{0}[3]
+\obj(10,11)[1]{$\ldots$}
+\obj(28,11)[2]{$X_{i-1}$}
+\obj(46,11)[3]{$X_i$}
+\obj(64,11)[4]{$X_{i+1}$}
+\obj(82,11)[5]{$\ldots$}
+\mor{1}{2}{$ $}
+\mor{2}{3}{$\scriptstyle f_i$}
+\mor{3}{4}{$\scriptstyle f_{i+1}$}
+\mor{4}{5}{$ $}
+\enddc
+\end{equation}
+jest dok³adny w $X_i$, o ile $\operatorname{im}(f_i)=\ker(f_{i+1})$. Mówimy, ¿e ci¹g \emph{(\ref{exact})} jest dok³adny, je¿eli dla ka¿dego $i$, dla którego istniej¹ $f_i$ i $f_{i+1}$, ci¹g \emph{(\ref{exact})} jest dok³adny w $X_i$.
+\end{df}
+\begin{lem}
+Ci¹g
+\begin{equation}\label{exact2}
+\begindc{0}[3]
+\obj(10,11)[1]{$X$}
+\obj(25,11)[2]{$Y$}
+\obj(40,11)[3]{$0$}
+\mor{1}{2}{$\scriptstyle f$}
+\mor{2}{3}{$ $}
+\enddc
+\end{equation}
+jest dok³adny wtedy i tylko wtedy, gdy $f$ jest epimorfizmem.
+\end{lem}
+\dowod
+J¹drem jedynego homomorfizmu $Y\rightarrow 0$ jest $Y$. St¹d dok³adnoœæ ci¹gu (\ref{exact2}) oznacza, ¿e $\operatorname{im}(f)=Y$, co jest równowa¿ne temu, ¿e $f$ jest epimorfizmem.\cnd
+\begin{lem}
+Ci¹g
+\begin{equation}\label{exact3}
+\begindc{0}[3]
+\obj(10,11)[1]{$0$}
+\obj(25,11)[2]{$X$}
+\obj(40,11)[3]{$Y$}
+\mor{2}{3}{$\scriptstyle f$}
+\mor{1}{2}{$ $}
+\enddc
+\end{equation}
+jest dok³adny wtedy i tylko wtedy, gdy $f$ jest monomorfizmem.
+\end{lem}
+\dowod Obraz jedynego homomorfizmu $0\rightarrow X$ jest podmodu³em zerowym modu³u $X$. St¹d dok³adnoœæ ci¹gu (\ref{exact3}) oznacza, ¿e $\ker{f}=0$, co jest równowa¿ne temu, ¿e $f$ jest monomorfizmem.\cnd \vskip6pt\noindent
+Z powy¿szych dwóch lematów otrzymujemy nastêpuj¹cy
+\begin{wn}
+Ci¹g
+\begin{equation}\label{exact4}
+\begindc{0}[3]
+\obj(10,11)[1]{$0$}
+\obj(25,11)[2]{$X$}
+\obj(40,11)[3]{$Y$}
+\obj(55,11)[4]{$0$}
+\mor{2}{3}{$\scriptstyle f$}
+\mor{3}{4}{$ $}
+\mor{1}{2}{$ $}
+\enddc
+\end{equation}
+jest dok³adny wtedy i tylko wtedy, gdy $f$ jest izomorfizmem.
+\end{wn}
+Kolejny fakt jest fragmentem twierdzenia o lewostronnej dok³adnoœci funktora $\Hom$. Samo twierdzenie nie bêdzie nam potrzebne, za to w Rozdziale 3 udowodnimy pewn¹ jego wersjê zwi¹zan¹ z ci¹gami Grothendiecka (Twierdzenie \ref{wn1a}).
+\begin{lem}\label{lem6}
+Ci¹g
+\begin{equation}\label{exact1}
+\begindc{0}[3]
+\obj(-5,1)[0]{$X$}
+\obj(10,1)[1]{$Y$}
+%\obj(25,0)[2]{$Z$}
+\obj(25,1)[3]{$0$}
+%\mor{1}{2}{$\scriptstyle g$}
+\mor{1}{3}{$ $}
+\mor{0}{1}{$\scriptstyle f$}
+\enddc
+\end{equation}
+jest dok³adny wtedy i tylko wtedy, gdy dla dowolnego $N\in\rmod$ dok³adny jest ci¹g
+\begin{equation}\label{exact5}
+\begindc{0}[3]
+\obj(19,1)[0]{$0$}
+%\obj(10,11)[1]{$\Hom(Z,N)$}
+\obj(42,1)[2]{$\Hom(Y,N)$}
+\obj(74,1)[3]{$\Hom(X,N).$}
+\mor{0}{2}{$ $}
+%\mor{1}{2}{$\scriptstyle g^*$}
+\mor{2}{3}{$\scriptstyle f^*$}
+\enddc
+\end{equation}
+\end{lem}
+\dowod \\($\Rightarrow$): Niech ci¹g (\ref{exact1}) bêdzie dok³adny oraz niech $g \in \Hom(Y,N)$. Niech $f^*(g)=0$, tzn. $g\circ f=0$. Wówczas $g|\operatorname{im}(f)=0$. Poniewa¿ $\operatorname{im}(f)=Y$, zatem $g=0$, sk¹d $f^*$ jest monomorfizmem.  \vskip6pt\noindent
+($\Leftarrow$): Niech ci¹g (\ref{exact5}) bêdzie dok³adny dla dowolnego $N\in\rmod$. Zatem
+$$f^*:\Hom\big(Y,Y/\operatorname{im}(f)\big)\lra\Hom\big(X,Y/\operatorname{im}(f)\big)$$
+jest monomorfizmem. Niech $g\in\Hom\big(Y,Y/\operatorname{im}(f)\big)$ bêdzie homomorfizmem naturalnym. Wówczas $g|\operatorname{im}(f)=0$, tzn. $f^*(g)=g\circ f=0$. St¹d $g=0$, gdy¿ $f^*$ jest monomorfizmem, a zatem $\operatorname{im}(f)=Y$, co oznacza, ¿e $f$ jest epimorfizmem. \cnd
+\section{Modu³y wolne}
+\begin{df}
+Zbiór $B=\{e_i\}_{i\in I}$ nazywamy baz¹ $R$-modu³u $X$, o ile dowolny element $x\in X$ ma jednoznaczne przedstawienie w postaci $x=\underset{i\in I}{\sum}r_ie_i$, gdzie $r_i\in R$, $i\in I$ oraz $r_i=0$ dla prawie wszystkich $i\in I$.
+\end{df}
+\begin{df}
+$R$-modu³ $X$ nazywamy wolnym, o ile modu³ ten posiada bazê.
+\end{df}
+\begin{tw}\emph{(\cite{2}, Twierdzenie 1.8)}\label{tw1}Niech $B\subset X$ bêdzie baz¹ $R$-modu³u wolnego $X$. Wówczas dowolne odwzorowanie $\alpha:B\rightarrow Y$ o wartoœciach w $R$-module $Y$ mo¿e byæ jednoznacznie przed³u¿one do $R$-homomorfizmu $\bar{\alpha}$, tzn. diagram
+$$
+\begindc{0}[3]
+\obj(15,20){$B$}
+\obj(33,20){$X$}
+\obj(33,2){$Y$}
+\mor(15,20)(33,20){$\scriptstyle i$}[1,3]
+\mor(15,20)(33,2){$\scriptstyle \alpha$}
+\enddc
+$$
+w którym $i$ oznacza odwzorowanie w³o¿enia, mo¿e byæ jednoznacznie uzupe³niony do diagramu przemiennego
+$$
+\begindc{0}[3]
+\obj(15,20){$B$}
+\obj(33,20){$X$}
+\obj(33,2){$Y$}
+\mor(15,20)(33,20){$\scriptstyle i$}[1,3]
+\mor(15,20)(33,2){$\scriptstyle \alpha$}
+\mor(33,20)(33,2){$\scriptstyle \bar{\alpha}$}[1,1]
+\enddc
+$$
+\end{tw}
+\dowod Niech $B=\{e_i\}_{i\in I}$. Dowolny element $x\in X$ ma jednoznaczne przedstawienie w postaci kombinacji liniowej elementów bazy,
+\begin{equation}\label{eq1}
+x=\sum_{i\in I}r_ie_i,
+\end{equation}
+gdzie $r_i\in R$, dla $i\in I$ oraz prawie wszystkie $r_i$ s¹ zerami. Poniewa¿ $\bar{\alpha}$ ma byæ $R$-homomorfizmem, zatem musi byæ
+$$\bar{\alpha}\Big(\sum_{i\in I}r_ie_i\Big)=\sum_{i\in I}r_i \bar{\alpha}(e_i).$$
+Ponadto $\bar{\alpha}$ ma byæ przed³u¿eniem $\alpha$, zatem
+$$\bar{\alpha}\Big(\sum_{i\in I}r_ie_i\Big)=\sum_{i\in I}r_i \alpha(e_i).$$
+Wobec tego istnieje co najwy¿ej jedno takie $\bar{\alpha}$ i okreœlone jest powy¿szym wzorem. Zauwa¿my, ¿e dziêki jednoznacznoœci przedstawienia elementu $x$ w postaci (\ref{eq1}) odwzorowanie $\bar{\alpha}$ jest okreœlone poprawnie powy¿szym wzorem. Ponadto $\bar{\alpha}\big|B=\alpha$, gdy¿ dla dowolnego $e_i\in B$ mamy $\bar{\alpha}(e_i)=\alpha(e_i)$. Pozostaje pokazaæ, ¿e $\bar{\alpha}$ jest $R$-homomorfizmem. Niech $x=\underset{i\in I}{\sum}r_ie_i$ oraz $x'=\underset{i\in I}{\sum}s_ie_i$, gdzie $r_i,s_i\in R$. Wówczas
+$$
+\begin{aligned}
+\bar{\alpha}(x+x')&=\bar{\alpha}\Big(\sum_{i\in I}r_ie_i+\sum_{i\in I}s_ie_i\Big)=\bar{\alpha}\Big(\sum_{i\in I}(r_i+s_i)e_i\Big)=\\
+&=\sum_{i\in I}(r_i+s_i)\alpha(e_i)=\sum_{i\in I}r_i\alpha(e_i)+\sum_{i\in I}s_i \alpha(e_i)=\\
+&=\bar{\alpha}(x)+\bar{\alpha}(x').
+\end{aligned}
+$$
+Niech teraz $r\in R$. Wówczas
+$$
+\begin{aligned}
+\bar{\alpha}(rx)&=\bar{\alpha}\Big(r\sum_{i\in I}r_ie_i\Big)=\bar{\alpha}\Big(\sum_{i\in I}(rr_i)e_i\Big)=\sum_{i\in I}(rr_i)\alpha(e_i)=\\
+&=r\Big(\sum_{i\in I}r_i \alpha(e_i)\Big)=r\bar{\alpha}(x).
+\end{aligned}
+$$
+St¹d $\bar{\alpha}$ jest $R$-homomorfizmem bêd¹cym przed³u¿eniem odwzorowania $\alpha$.\cnd
+\vskip6pt\noindent W przysz³ych rozwa¿aniach wa¿n¹ rolê bêdzie odgrywaæ twierdzenie, którego dowód mo¿na znaleŸæ w \cite{2}.
+\begin{tw}\emph{(\cite{2}, Twierdzenie 1.9)}\label{tw5}
+Dla ka¿dego zbioru $X$ istnieje $R$-modu³ wolny, którego baz¹ jest zbiór równoliczny z $X$.
+\end{tw}
+\chapter{Funktory}
+\hskip20pt Poni¿szy rozdzia³ poœwiêcony jest pojêciu funktora i podobnie jak Rozdzia³ 1 oparty jest w znacznej czêœci na ksi¹¿ce \cite{2}. Rozwa¿amy zarówno funktory jednej zmiennej jak i dwóch zmiennych. Wprowadzamy przede wszystkim funktor $\map$, który odegra zasadnicz¹ rolê w kolejnych rozdzia³ach. W dalszej czêœci wprowadzamy pojêcie podfunktora i funktora odwzorowañ oraz podamy pewne wa¿ne przyk³ady. Na zakoñczenie definiujemy przekszta³cenie funktorów oraz mówimy co to znaczy, ¿e funktor jest reprezentowalny.
+\begin{df}\label{funktor1a}
+Mówimy, ¿e okreœlony jest funktor kowariantny \\ $F:R\operatorname{-Mod}\rightarrow R\operatorname{-Mod}$, jeœli
+\begin{enumerate}
+\item dla ka¿dego $R$-modu³u $X$ okreœlony jest $R$-modu³ $F(X)$,
+\item dla ka¿dego $R$-homomorfizmu $f:X\rightarrow X'$ okreœlony jest $R$-homomorfizm  $F(f):F(X)\rightarrow F(X'),$
+\item spe³nione s¹ warunki
+\begin{enumerate}
+\item [\emph{(a)}] $F(g\circ f)=F(g)\circ F(f),$ o ile z³o¿enie $g\circ f$ istnieje,
+\item [\emph{(b)}] $F(\emph{id}_X)=\emph{id}_{F(X)}$.
+\end{enumerate}
+\end{enumerate}
+\end{df}
+\begin{df}\label{funktor1b}
+Mówimy, ¿e okreœlony jest funktor kontrawariantny \\ $F:\rmod\rightarrow\rmod$, jeœli
+\begin{enumerate}
+\item dla ka¿dego $R$-modu³u $X$ okreœlony jest $R$-modu³ $F(X)$,
+\item dla ka¿dego $R$-homomorfizmu $f:X\rightarrow X'$ okreœlony jest $R$-homomorfizm  $F(f):F(X')\rightarrow F(X),$
+\item spe³nione s¹ warunki
+\begin{enumerate}
+\item [\emph{(a)}] $F(g\circ f)=F(f)\circ F(g),$ o ile z³o¿enie $g\circ f$ istnieje,
+\item [\emph{(b)}] $F(\emph{id}_X)=\emph{id}_{F(X)}$.
+\end{enumerate}
+\end{enumerate}
+\end{df}
+Podamy teraz jedno z czterech mo¿liwych uogólnienieñ powy¿szych dwóch definicji na przypadek funktorów dwóch argumentów. Jest to ta wersja, któr¹ bêdziemy wykorzystywali.
+\begin{df}
+Mówimy, ¿e okreœlony jest funktor dwóch zmiennych \\ $A:\rmod\times\rmod\rightarrow\rmod$, kontrawariantny wzglêdem pierwszej zmiennej i kowariantny wzglêdem drugiej zmiennej, o ile spe³nione s¹ nastêpuj¹ce warunki:
+\begin{enumerate}
+\item dla dowolnych $R$-modu³ów $X,Y$ okreœlony jest $R$-modu³ $A(X,Y)$,
+\item dla dowolnych $R$-homomorfizmów $f:X'\rightarrow X$, $g:Y\rightarrow Y'$ okreœlony jest $R$-homomorfizm $A(f,g):A(X,Y)\rightarrow A(X',Y')$,
+\item spe³nione s¹ warunki
+\begin{enumerate}
+\item [\emph{(a)}] $A(g\circ f, f'\circ g')=A(f,f')\circ A(g,g')$, o ile z³o¿enia $g\circ f$ oraz $f'\circ g'$ istniej¹,
+\item [\emph{(b)}] $A(\operatorname{id}_X,\operatorname{id}_Y)=\operatorname{id}_{A(X,Y)}$.
+\end{enumerate}
+\end{enumerate}
+\end{df}
+W przysz³oœci bêdziemy taki funktor nazywaæ po prostu funktorem dwóch zmien\-nych. Podobnie przez funktor jednej zmiennej bêdziemy rozumieæ funktor kowariantny.
+\begin{lem}
+$\map$ jest funktorem dwóch zmiennych, jeœli $\map(X,Y)$ i $\map(f,g)$ okreœlimy tak jak w Rozdziale $1$.
+\end{lem}
+\dowod Je¿eli $X,Y\in R\operatorname{-Mod}$, to $\operatorname{Map}(X,Y)$ jest $R$-modu³em na podstawie Lematu \ref{lem4}. W Rozdziale 1 wykazaliœmy równie¿, ¿e je¿eli $f:X'\rightarrow X$ oraz $g:Y\rightarrow Y'$ s¹ $R$-homomorfizmami, to $\operatorname{Map}(f,g):\operatorname{Map}(X,Y)\rightarrow\operatorname{Map}(X',Y')$ jest $R$-homomorfizmem, który dowolnemu $\alpha\in\operatorname{Map}(X,Y)$ przyporz¹dkowuje odwzorowanie $g\circ\alpha\circ f$.\vskip5pt\noindent
+Niech teraz $f:X''\rightarrow X'$, $g:X'\rightarrow X$ oraz $g':Y\rightarrow Y'$, $f':Y'\rightarrow Y''$ bêd¹ $R$-homomorfizmami. Wówczas dla dowolnego $\alpha\in\map(X,Y)$ mamy
+$$
+\begin{aligned}
+\map(g\circ f, f'\circ g')(\alpha)&=(f'\circ g')\circ \alpha \circ (g\circ f)=f'\circ (g'\circ \alpha \circ g)\circ f=\\
+&=\map(f,f')(g'\circ\alpha\circ g)=\map(f,f')\big(\map(g,g')(\alpha)\big).
+\end{aligned}
+$$
+Zatem
+$$\map(g\circ f, f'\circ g')=\map(f,f')\circ\map(g,g').$$
+Ponadto
+$$\map(\id_X,\id_Y)(\alpha)=\id_Y\circ\,\alpha\circ\id_X=\alpha=\id_{\map(X,Y)}(\alpha),$$
+zatem $\map$ jest funktorem.\;$\Box$
+\section{Funktory odwzorowañ}
+\begin{df}
+Niech $F:\rmod\rightarrow\rmod$ bêdzie funktorem. \\ Mówimy, ¿e $G$ jest podfunktorem funktora $F$ (co zapisujemy $G\subset F$), o ile dla ka¿dego $X\in\rmod$ okreœlony jest podmodu³ $G(X)\subset F(X)$ oraz dla dowolnego  $R$-homomorfizmu $f:X\rightarrow Y$ mamy $F(f)\big(G(X)\big)\subset G(Y)$. Wówczas  $G:\rmod\rightarrow\rmod$ jest funktorem, przy czym $G(f)=\F(f)\big|G(X)$ jest $R$-homomorfizmem z $G(X)$ do $G(Y)$.
+\end{df}
+\begin{df}
+Niech $A:\rmod\times\rmod\rightarrow\rmod$ bêdzie funktorem dwóch zmiennych. Mówimy, ¿e $B$ jest podfunktorem funktora $A$ (co zapisujemy $B~\subset~A$), o ile dla dowolnych $X,Y\in\rmod$ okreœlony jest podmodu³ $B(X,Y)\subset A(X,Y)$ oraz dla dowolnych $R$-homomorfizmów $f:X'\rightarrow X$, $g:Y\rightarrow Y'$ mamy $A(f,g)\big(B(X,Y)\big)\subset B(X',Y')$. Wówczas $B$ jest funktorem dwóch zmiennych, przy czym $B(f,g)=A(f,g)\big|B(X,Y)$ jest $R$-homomorfizmem z $B(X,Y)$ do $B(X',Y')$.
+\end{df}
+\begin{df}
+Dowolny podfunktor funktora $\operatorname{Map}$ nazywamy funktorem odwzo\-rowañ.
+\end{df}
+\begin{ex}
+$\Hom$ jest funktorem odwzorowañ. Istotnie, w Lemacie \ref{lem4} wykazaliœmy, ¿e $\Hom(X,Y)\subset\map(X,Y)$ oraz $\map(f,g)\big|\Hom(X,Y)=\Hom(X',Y')$ dla dowolnych $R$-homomorfizmów $f:X'\rightarrow X$, $g:Y\rightarrow Y'$. Wobec tego $\Hom\subset\map$, co oznacza, ¿e $\Hom$ jest funktorem odwzorowañ.
+\end{ex}
+\begin{ex}\label{ex2}
+Niech $\Hom^2$ bêdzie funktorem dwóch zmiennych, który dowolnym $R$-modu³om $X$ i $Y$ przyporz¹dkowuje zbiór wszystkich odwzorowañ kwadratowych pomiêdzy modu³ami $X$ i $Y$, tzn. takich odwzorowañ $\alpha\in \map(X,Y)$, dla których $\alpha(rx)=r^2\alpha(x)$ dla $r\in R$, $x\in X$ oraz odwzorowanie stowarzy\-szone $B_{\alpha}:X\times X\rightarrow Y$ okreœlone wzorem $B_{\alpha}(x,y)=\alpha(x+y)-\alpha(x)-\alpha(y)$ jest dwuliniowe.\vskip5pt\noindent
+Wówczas $\Hom^2$ jest funktorem odwzorowañ. Istotnie, niech dane bêd¹ \\ $R$-homomorfizmy $f:X'\rightarrow X$ i $g:Y\rightarrow Y'$ oraz niech $\alpha: X\rightarrow Y$ bêdzie odwzorowaniem kwadratowym. Poka¿emy, ¿e $\map(f,g)(\alpha)=g\circ\alpha\circ f$ jest te¿ odwzorowaniem kwadratowym. Po pierwsze, dla dowolnych $r\in R$, $x'\in X'$ otrzymujemy
+$$
+\begin{aligned}
+(g\circ\alpha\circ f)(rx')&=g\big(\alpha\big(f(rx')\big)\big)=g\big(\alpha\big(rf(x')\big)\big)=\\
+&=g\big(r^2\alpha\big(f(x')\big)\big)=r^2g\big(\alpha\big(f(x')\big)\big)=\\
+&=r^2\big((g\circ\alpha\circ f)(x)\big).
+\end{aligned}
+$$
+Pozostaje pokazaæ, ¿e odwzorowanie stowarzyszone $B_{g\circ\alpha\circ f}$ okreœlone wzorem
+$$B_{g\circ\alpha\circ f}(x',y')=(g\circ\alpha\circ f)(x'+y')-(g\circ\alpha\circ f)(x')-(g\circ\alpha\circ f)(y')$$
+jest dwuliniowe wzglêdem $x',y'\in X'$. Poka¿emy ¿e $B_{g\circ\alpha\circ f}$ jest $R$-homomorfizmem ze wzglêdu na pierwsz¹ zmienn¹. Uzasadnienie liniowoœci wzglêdem drugiej zmiennej bêdzie analogiczne. Niech $x',x'',y'\in X'$ oraz $r,s\in R$. Zauwa¿my, ¿e
+\newcommand{\gaf}{g\circ\alpha\circ f}
+$$
+\begin{aligned}
+&B_{\gaf}(x',y')=(\gaf)(x'+y')-(\gaf)(x')-(\gaf)(y')=\\
+&=g\Big(\alpha\big(f(x')+f(y')\big)\Big)-g\Big(\alpha\big(f(x')\big)\Big)-g\Big(\alpha\big(f(y')\big)\Big)=\\
+&=g\Big(\alpha\big(f(x')+f(y')\big)-\alpha\big(f(x')\big)-\alpha\big(f(y')\big)\Big)=g\Big(B_\alpha\big(f(x'),f(y')\big)\Big).
+\end{aligned}
+$$
+Wobec tego
+$$
+\begin{aligned}
+&B_{\gaf}(rx'+sx'',y')=g\Big(B_\alpha\big(f(rx'+sx''),f(y')\big)\Big)=\\
+&=g\Big(rB_\alpha\big(f(x'),f(y')\big)+sB_\alpha\big(f(x''),f(y')\big)\Big)=rg\Big(B_\alpha\big(f(x'),f(y')\big)\Big)+\\
+&+sg\Big(B_\alpha\big(f(x''),f(y')\big)\Big)=rB_{\gaf}(x',y')+sB_{\gaf}(x'',y').
+\end{aligned}
+$$
+St¹d $B_{\gaf}$ jest odwzorowaniem dwuliniowym, a zatem $\gaf$ jest od\-wzorowaniem kwadratowym. Wobec tego $\map(f,g)(\alpha)\in \Hom^2(X',Y')$, a wiêc $\Hom^2$ jest funktorem odwzorowañ.
+\end{ex}
+
+\begin{ex}
+Niech $R=\mathbb{Z}$ oraz niech $A$ bêdzie funktorem, który dowolnym $X,Y\in\mathbb{Z}\text{-Mod}$ przyporz¹dkowuje zbiór $A(X,Y)$ wszystkich takich od\-wzorowañ z $X$ do $Y$, ¿e obraz dowolnego $x\in X$ jest skoñczonego rzêdu. Inaczej mówi¹c, $\alpha\in A(X,Y)$ dok³adnie wtedy, gdy dla dowolnego $x\in X$ istnieje takie $n$, ¿e $n\alpha(x)=0$. Tak okreœlony funktor $A$ jest funktorem odwzorowañ. Istotnie, niech $f:X'\rightarrow X$ oraz $h:Y \ra Y'$ bêd¹ $\mathbb{Z}$-homomorfizmami. Rozwa¿my od\-wzorowanie $\alpha\in A(X,Y)$. Wówczas $\map(f,h)(\alpha)=h\circ\alpha\circ f$. Nale¿y pokazaæ, ¿e dla dowolnego $x'\in X'$ obraz $(h\circ\alpha\circ f)(x')$ jest skoñczonego rzêdu. Poniewa¿ $f(x')\in X$, zatem $\alpha\big(f(x')\big)$ jest skoñczonego rzêdu, tzn. istnieje takie $n$, ¿e $n\alpha\big(f(x')\big)=0$. Wówczas
+$$n(h\circ\alpha\circ f)(x')=nh\big(\alpha(f(x'))\big)=h\big(n\alpha(f(x'))\big)=h(0)=0.$$
+St¹d $h\circ\alpha\circ f\in A(X',Y')$. Pokazaliœmy w ten sposób, ¿e
+$$\map(f,h)\big(A(X,Y)\big)\subset A(X',Y'),$$
+co oznacza, ¿e $A\subset\map$.
+\end{ex}
+
+\section{Przekszta³cenia funktorów}
+
+\begin{df}
+Niech $F,G:\rmod\rightarrow\rmod$ bêd¹ funktorami. Mówimy, ¿e okreœlone jest przekszta³cenie funktorów $\varphi:F\rightarrow G$, o ile dla dowolnego $R$-mo\-du³u $X$ okreœlony jest $R$-homomorfizm $\varphi_X:F(X)\rightarrow G(X)$ oraz spe³niony jest nastêpuj¹cy warunek:
+\begin{enumerate}
+\item[] jeœli $X'$ jest dowolnym $R$-modu³em oraz $f:X\rightarrow X'$ dowolnym $R$-ho\-momorfizmem, to diagram
+$$
+\begindc{0}[3]
+\obj(15,20){$F(X)$}
+\obj(40,20){$G(X)$}
+\obj(15,1){$F(X')$}
+\obj(40,1){$G(X')$}
+\mor(18,20)(37,20){$\scriptstyle \varphi_X$}
+\mor(18,1)(37,1){$\scriptstyle \varphi_{X'}$}
+\mor(15,20)(15,1){$\scriptstyle F(f)$}
+\mor(40,20)(40,1){$\scriptstyle G(f)$}
+\enddc
+$$
+jest przemienny, tzn. $G(f)\circ\varphi_X=\varphi_{X'}\circ F(f)$.
+\end{enumerate}
+W szczególnoœci, je¿eli dla dowolnego $X\in\rmod$ homomorfizm $\varphi_X$ jest izomorfizmem, to mówimy, ¿e przekszta³cenie $\varphi$ jest izomorfizmem funktorów oraz, ¿e funktory $F$ i $G$ s¹ izomorficzne, co zapisujemy $F\simeq G$. Mówimy tak¿e w tym wypadku, ¿e istnieje naturalny izomorfizm $F(X)\simeq G(X)$.
+\end{df}
+\begin{df}
+Niech $A,B:\rmod\times\rmod\rightarrow\rmod$ bêd¹ funktorami dwóch zmiennych. Mówimy, ¿e okreœlone jest przekszta³cenie funktorów $\varphi:A\rightarrow B$, o ile dla dowolnych $R$-modu³ów $X,Y$ okreœlony jest $R$-homomorfizm \\ $\varphi_{X,Y}:A(X,Y)\rightarrow B(X,Y)$ oraz spe³niony jest nastêpuj¹cy warunek:
+\begin{enumerate}
+\item[] jeœli $X',Y'$ s¹ dowolnymi $R$-modu³ami oraz $f:X'\rightarrow X$, $g:Y\rightarrow Y'$ dowolnymi $R$-homomorfizmami, to diagram
+$$
+\begindc{0}[3]
+\obj(10,20)[q]{$A(X,Y)$}
+\obj(40,20)[w]{$B(X,Y)$}
+\obj(10,1)[a]{$A(X',Y')$}
+\obj(40,1)[s]{$B(X',Y')$}
+\mor{q}{w}{$\scriptstyle \varphi_{X,Y}$}
+\mor{a}{s}{$\scriptstyle \varphi_{X',Y'}$}
+\mor{q}{a}{$\scriptstyle A(f,g)$}
+\mor{w}{s}{$\scriptstyle B(f,g)$}
+\enddc
+$$
+jest przemienny, tzn. $B(f,g)\circ\varphi_{X,Y}=\varphi_{X',Y'}\circ A(f,g)$.
+\end{enumerate}
+W szczególnoœci, je¿eli dla dowolnych $X,Y\in\rmod$ homomorfizm $\varphi_{X,Y}$ jest izomorfizmem, to mówimy, ¿e przekszta³cenie $\varphi$ jest izomorfizmem funktorów oraz, ¿e funktory $A$ i $B$ s¹ izomorficzne, co zapisujemy $A\simeq B$. Mówimy tak¿e w tym wypadku, ¿e istnieje naturalny izomorfizm $A(X,Y)\simeq B(X,Y)$.
+\end{df}
+
+\begin{df}\label{reprezent}
+Mówimy, ¿e funktor odwzorowañ $A$ jest reprezentowalny, a dok³adniej reprezentowany przez funktor $F\!:\!\rmod\!\rightarrow\!\rmod$, jeœli
+%dla dowolnych $X,Y\in\rmod$ istnieje taki izomorfizm $R$-modu³ów $\varphi_{X,Y}:\Hom\big(F(X),Y\big)\rightarrow A(X,Y)$, ¿e dla dowolnych %$R$-homomorfizmów $f:X'\rightarrow X$, $g:Y\rightarrow Y'$ diagram
+%\begin{equation}
+%\begindc{0}[3]
+%\obj(15,10)[11]{$\Hom\big(F(X),Y\big)$}
+%\obj(55,10)[12]{$A(X,Y)$}
+%\obj(15,-10)[21]{$\Hom\big(F(X'),Y'\big)$}
+%\obj(55,-10)[22]{$A(X',Y')$}
+%\mor{11}{12}{$\scriptstyle \varphi_{X,Y}$}
+%\mor{21}{22}{$\scriptstyle \varphi_{X',Y'}$}
+%\mor{11}{21}{$\scriptstyle \Hom(F(f),g)$}
+%\mor{12}{22}{$\scriptstyle A(f,g)$}
+%\enddc
+%\end{equation}
+%jest przemienny. Piszemy wówczas
+$A\!\simeq\!\Hom\!\big(F(\_),\_\big)$, tzn. istnieje naturalny izomorfizm $A(X,Y)\simeq \Hom\big(F(X),Y\big)$.
+%lub mniej œciœle $A(X,Y)\simeq\Hom\big(F(X),Y\big)$.
+\end{df}
+
+\chapter{Ci¹gi Grothendiecka i granice proste}
+\section{Ci¹gi Grothendiecka}
+Ci¹gi Grothendiecka stanowi¹ odpowiednik ci¹gów dok³adnych w sytuacji, gdy rozwa¿amy odwzorowania niekoniecznie bêd¹ce homomorfizmami pomiêdzy obiektami, które s¹ zbiorami z ewentualnymi dodatkowymi strukturami. W naszych rozwa¿aniach ograniczymy siê jednak do ci¹gów $R$-modu³ów i $R$-homo\-morfizmów. Czytelnika zainteresowanego tematem odsy³amy do pracy \cite{6} oraz artyku³u \cite{3}. Informacje na ten temat mo¿na równie¿ znaleŸæ w \cite{4} i \cite{5}. Treœæ nastêpuj¹cych dwóch paragrafów pochodzi g³ównie z pracy \cite{3}.
+\subsection{Ci¹gi Grothendiecka pierwszego rodzaju}
+\begin{df}
+Ci¹g $R$-modu³ów i $R$-homomorfizmów
+$$
+\begindc{0}[3]
+\obj(14,11){$X$}
+\obj(30,11){$Y$}
+\obj(44,11){$Z$}
+\mor(14,12)(30,12){$\scriptstyle f_1$}
+\mor(14,10)(30,10){$\scriptstyle f_2$}[-1,0]
+\mor(30,11)(44,11){$\scriptstyle g$}
+\enddc
+$$
+nazywamy ci¹giem Grothendiecka pierwszego rodzaju, je¿eli
+\begin{enumerate}
+\item $g$ jest epimorfizmem,
+\item dla dowolnych $y_1,y_2\in Y$ nastêpuj¹ce warunki s¹ równowa¿ne:
+\begin{enumerate}
+\item [\emph{(a)}] $g(y_1)=g(y_2)$,
+\item [\emph{(b)}] istnieje $x\in X$ taki, ¿e $y_1=f_1(x)$ i $y_2=f_2(x)$.
+\end{enumerate}
+Przy tym implikacja \emph{(b)}$\Rightarrow$\emph{(a)} oznacza, ¿e $g\circ f_1=g\circ f_2$.
+\end{enumerate}
+\end{df}
+\begin{tw}\emph{(\cite{3}, str. 222)}\label{tw7}
+Ci¹g
+\begin{equation}\label{groth1}
+\begindc{0}[3]
+\obj(14,1){$X$}
+\obj(30,1){$Y$}
+\obj(44,1){$Z$}
+\mor(14,2)(30,2){$\scriptstyle f_1$}
+\mor(14,0)(30,0){$\scriptstyle f_2$}[-1,0]
+\mor(30,1)(44,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka pierwszego rodzaju wtedy i tylko wtedy, gdy ci¹g
+\begin{equation}\label{groth2}
+\begindc{0}[3]
+\obj(15,1){$X$}
+\obj(30,1){$Y$}
+\obj(45,1){$Z$}
+\obj(60,1){$0$}
+\mor(15,1)(30,1){$\scriptstyle f_1-f_2$}
+\mor(30,1)(45,1){$\scriptstyle g$}
+\mor(45,1)(60,1){}
+\enddc
+\end{equation}
+jest dok³adny i dla dowolnego $y\in Y$ istnieje $x\in X$ taki, ¿e $y=f_1(x)=f_2(x)$.
+\end{tw}
+\dowod \\ $(\Rightarrow)$: Oczywiœcie $g$ jest epimorfizmem z za³o¿enia. Dla dowodu dok³adnoœci pozostaje pokazaæ, ¿e $\operatorname{im}(f_1-f_2)=\ker(g)$. Zauwa¿my najpierw, ¿e do $\operatorname{im}(f_1~-~f_2)$ nale¿¹ takie $y\in Y$, które daj¹ siê przedstawiæ w postaci $y=f_1(x)-f_2(x)$ dla pewnego $x\in X$. Mamy tak¿e
+$$\operatorname{ker}(g)=\big\{y\in Y\;;\;g(y)=0\big\}=\big\{y\in Y\;;\;g(y)=g(0)\big\}.$$
+Poniewa¿ ci¹g (\ref{groth1}) jest ci¹giem Grothendiecka, zatem równoœæ $g(y)=g(0)$ równowa¿na jest temu, ¿e istnieje taki $x\in X$, dla którego $y=f_1(x)$ i $f_2(x)=0$. St¹d
+$$\operatorname{ker}(g)=\big\{y\in Y\;;\;\underset{x\in X}{\exists}\;y=f_1(x)-f_2(x)\;\wedge\;f_2(x)=0\big\}\subset\operatorname{im}(f_1-f_2).$$
+Wprost z definicji wynika, ¿e $g\circ f_1=g\circ f_2$, wiêc $g\circ(f_1-f_2)=0$, co jest równowa¿ne temu, ¿e $\operatorname{im}(f_1-f_2)\subset\ker(g)$. Zatem $\operatorname{im}(f_1-f_2)\subset\operatorname{ker}(g)$ i osta\-tecznie $\operatorname{im}(f_1-f_2)=\operatorname{ker}(g)$, co dowodzi, ¿e ci¹g (\ref{groth2}) jest dok³adny. Ponadto, bezpoœrednio z warunku \textit{2.} (przy $y_1=y_2$) wynika, ¿e dla dowolnego $y\in Y$ istnieje $x\in X$ taki, ¿e $y=f_1(x)$ i $y=f_2(x)$.\vskip6pt\noindent
+$(\Leftarrow)$: Oczywiœcie $g$ jest epimorfizmem. Jeœli $y_1=f_1(x)$~i~$y_2=f_2(x)$, to \\ $g(y_1)-g(y_2)=g\big((f_1-f_2)(x)\big)=0$, gdy¿ $\operatorname{im}(f_1-f_2)\subset\ker(g)$.\\ Niech $g(y_1)=g(y_2)$; wówczas $y_1-y_2\in\ker(g)$. Poniewa¿ ci¹g (\ref{groth2}) jest dok³adny, zatem $y_1-y_2\in\operatorname{im}(f_1-f_1)$. St¹d istnieje $x'\in X$ taki, ¿e $y_1-y_2=$ \\$=(f_1-f_2)(x')$, zatem $y_1-f_1(x')=y_2-f_2(x')$. Z za³o¿enia
+$$y_1-f_1(x')=y_2-f_2(x')=f_1(x'')=f_2(x'')$$ dla pewnego $x''\in X$. Zatem $y_1=f_1(x'+x'')$ i $y_2=f_2(x'+x'')$. K³ad¹c $x=x'+x''$ otrzymujemy $y_1=f_1(x)$ i $y_2=f_2(x)$.\cnd
+\begin{lem}\emph{(\cite{3}, Remark 2.4)}\label{lem3}
+Je¿eli ci¹g
+\begin{equation}\label{groth3}
+\begindc{0}[3]
+\obj(15,1){$X$}
+\obj(30,1){$Y$}
+\obj(45,1){$Z$}
+\obj(60,1){$0$}
+\mor(15,1)(30,1){$\scriptstyle f$}
+\mor(30,1)(45,1){$\scriptstyle g$}
+\mor(45,1)(60,1){}
+\enddc
+\end{equation}
+jest dok³adny, to ci¹g
+\begin{equation}\label{groth4}
+\begindc{0}[3]
+\obj(15,1){$X\oplus Y$}
+\obj(34,1){$Y$}
+\obj(49,1){$Z$}
+\mor(19,2)(34,2){$\scriptstyle (f,\operatorname{id}_Y)$}
+\mor(19,0)(34,0){$\scriptstyle (0,\operatorname{id}_Y)$}[-1,0]
+\mor(34,1)(49,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka pierwszego rodzaju, gdzie $(f,\id_Y)(x,y)=f(x)+y$ oraz $(0,\id_Y)(x,y)=y$ dla $(x,y)\in X\oplus Y$.
+\end{lem}
+\dowod Ci¹g (\ref{groth3}) jest dok³adny, zatem $g$ jest epimorfizmem i warunek \emph{1.} w definicji ci¹gu Grothendiecka jest spe³niony. Pozostaje pokazaæ równowa¿noœæ poni¿szych dwóch warunków:
+\begin{enumerate}
+\item[$(a)$] $g(y_1)=g(y_2)$,
+\item[$(b)$] $\underset{(x',y')\in X\oplus Y}{\exists}\;y_1=f(x')+y'\;\wedge\;y_2=y'$.
+\end{enumerate}
+$(b)\Rightarrow (a):$ Niech $y_1=f(x')+y'$ oraz $y_2=y'$ dla pewnego $(x',y')\in X\oplus Y$. Wówczas
+$$g(y_1)=g\big(f(x')+y'\big)=g\big(f(x')\big)+g(y').$$
+Ci¹g (\ref{groth3}) jest dok³adny, sk¹d wynika, ¿e $g\circ f=0$, zatem $g\big(f(x')\big)=0$. St¹d
+$$g(y_1)=g(y')=g(y_2).$$
+$(a)\Rightarrow (b):$ Niech $g(y_1)=g(y_2)$. Wówczas $g(y_1-y_2)=0$, co oznacza, ¿e $y_1-y_2\in\ker(g)$. Poniewa¿ $\ker(g)=\operatorname{im}(f)$, zatem $y_1-y_2\in \operatorname{im}(f)$, sk¹d istnieje $x'\in X$ taki, ¿e $f(x')=y_1-y_2$. Przyjmuj¹c $y'=y_2$ otrzymujemy $y_1=f(x')+y'$ oraz $y_2=y'$, co nale¿a³o udowodniæ.\cnd
+\vskip6pt\noindent
+Pokazuje siê, ¿e dla dowolnego $R$-modu³u $Z$ istnieje ci¹g dok³adny (\ref{groth3}), w którym $X$ i $Y$ s¹ wolnymi $R$-modu³ami. Wówczas w ci¹gu Grothendiecka (\ref{groth4}) modu³y $X\oplus Y$ oraz $Y$ s¹ wolne.
+\begin{ex}
+Rozwa¿my ci¹g $\mathbb{Z}$-modu³ów i $\mathbb{Z}$-homomorfizmów
+$$
+\begindc{0}[3]
+\obj(15,11)[Z]{$\mathbb{Z}$}
+\obj(30,11)[Z']{$\mathbb{Z}$}
+\obj(48,11)[Z/2Z]{$\mathbb{Z}/2\mathbb{Z}$}
+\obj(66,11)[0]{$0,$}
+\mor{Z}{Z'}{$\scriptstyle f$}
+\mor{Z'}{Z/2Z}{$\scriptstyle \nu$}
+\mor{Z/2Z}{0}{}
+\enddc
+$$
+w którym $f(n)=2n$ oraz $\nu$ jest homomorfizmem naturalnym, tzn. $\nu(n)=$\\$=n+2\mathbb{Z}$ dla $n\in \mathbb{Z}$. Powy¿szy ci¹g jest dok³adny, gdy¿ $\ker(\nu)=2\mathbb{Z}=\operatorname{im}(f)$, zatem, na podstawie Lematu \ref{lem3}, ci¹g
+$$
+\begindc{0}[3]
+\obj(15,11)[Zkw]{$\mathbb{Z}^2$}
+\obj(34,11)[Z]{$\mathbb{Z}$}
+\obj(52,11)[Z/2Z]{$\mathbb{Z}/2\mathbb{Z}$}
+\mor(15,12)(34,12){$\scriptstyle (f,\operatorname{id}_\mathbb{Z})$}
+\mor(15,10)(34,10){$\scriptstyle (0,\operatorname{id}_\mathbb{Z})$}[-1,0]
+\mor{Z}{Z/2Z}{$\scriptstyle \nu$}
+\enddc
+$$
+jest ci¹giem Grothendiecka pierwszego rodzaju, przy czym $(f,\id_{\mathbb{Z}})(n,m)=$\\$=2n+m$ oraz $(0,id_{\mathbb{Z}})(n,m)=m$ dla dowolnego $(n,m)\in\mathbb{Z}^2$.
+\end{ex}
+\begin{lem}\label{lem10}
+Niech $g:Y\rightarrow Z$ bêdzie epimorfizmem oraz niech $i$ bêdzie w³o¿eniem $\ker(g)$ w $Y$. Wówczas ci¹g
+\begin{equation}\label{groth11}
+\begindc{0}[3]
+\obj(17,1){$ker(g)\oplus Y$}
+\obj(45,1){$Y$}
+\obj(60,1){$Z$}
+\mor(24,2)(44,2){$\scriptstyle (i,\id_Y)$}
+\mor(24,0)(44,0){$\scriptstyle (0,\id_Y)$}[-1,0]
+\mor(45,1)(60,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka pierwszego rodzaju.
+\end{lem}
+\dowod Zauwa¿my, ¿e ci¹g
+$$
+\begindc{0}[3]
+\obj(10,1)[q]{$\ker(g)$}
+\obj(28,1)[w]{$Y$}
+\obj(46,1)[e]{$Z$}
+\obj(64,1)[r]{$0$}
+\mor{q}{w}{$\scriptstyle i$}
+\mor{w}{e}{$\scriptstyle g$}
+\mor{e}{r}{}
+\enddc
+$$
+jest dok³adny, wobec czego, na podstawie Lematu \ref{lem3}, ci¹g (\ref{groth11}) jest ci¹giem Grothendiecka pierwszego rodzaju. \cnd
+\subsection{Ci¹gi Grothendiecka drugiego rodzaju}
+\begin{df}\label{df1}
+Ci¹g $R$-modu³ów i $R$-homomorfizmów
+$$
+\begindc{0}[3]
+\obj(15,11){$X$}
+\obj(30,11){$Y$}
+\obj(46,11){$Z$}
+\mor(15,11)(30,11){$\scriptstyle g$}
+\mor(30,12)(46,12){$\scriptstyle f_1$}
+\mor(30,10)(46,10){$\scriptstyle f_2$}[-1,0]
+\enddc
+$$
+nazywamy ci¹giem Grothendiecka drugiego rodzaju, je¿eli
+\begin{enumerate}
+\item $g$ jest monomorfizmem,
+\item dla dowolnego $y\in Y$ nastêpuj¹ce warunki s¹ równowa¿ne:
+\begin{enumerate}
+\item[\emph{(a)}] $f_1(y)=f_2(y)$,
+\item[\emph{(b)}] istnieje $x\in X$ taki, ¿e $y=g(x)$.
+\end{enumerate}
+Przy tym implikacja \emph{(b)}$\Rightarrow$\emph{(a)} oznacza, ¿e $f_1\circ g=f_2\circ g$.
+\end{enumerate}
+\end{df}
+\begin{lem}\label{lem9}
+Ci¹g
+\begin{equation}\label{groth5}
+\begindc{0}[3]
+\obj(15,1){$X$}
+\obj(30,1){$Y$}
+\obj(46,1){$Z$}
+\mor(15,1)(30,1){$\scriptstyle g$}
+\mor(30,2)(46,2){$\scriptstyle f_1$}
+\mor(30,0)(46,0){$\scriptstyle f_2$}[-1,0]
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka drugiego rodzaju wtedy i tylko wtedy, gdy ci¹g
+\begin{equation}\label{groth6}
+\begindc{0}[3]
+\obj(1,1)[0]{$0$}
+\obj(16,1)[x]{$X$}
+\obj(31,1)[y]{$Y$}
+\obj(48,1)[z]{$Z$}
+\mor{0}{x}{}
+\mor{x}{y}{$\scriptstyle g$}
+\mor{y}{z}{$\scriptstyle f_1-f_2$}
+\enddc
+\end{equation}
+jest dok³adny.
+\end{lem}
+\dowod \\
+$(\Rightarrow)$: Za³ó¿my, ¿e ci¹g (\ref{groth5}) jest ci¹giem Grothendiecka. Nale¿y pokazaæ, ¿e ci¹g (\ref{groth6}) jest dok³adny. Wystarczy pokazaæ, ¿e $\ker(f_1-f_2)=\operatorname{im}(g)$. Mamy
+$$
+\begin{aligned}
+\ker(f_1-f_2)&=\big\{y\in Y\;;\;(f_1-f_2)(y)=0\big\}=\big\{y\in Y\;;\;f_1(y)=f_2(y)\big\}\\
+&=\big\{y\in Y\;;\;\underset{x\in X}{\exists}\;y=g(x)\big\}=\operatorname{im}(g).
+\end{aligned}
+$$
+$(\Leftarrow)$: Za³ó¿my, ¿e ci¹g (\ref{groth6}) jest dok³adny, sk¹d $\ker(f_1-f_2)=\operatorname{im}(g)$. Niech $f_1(y)=f_2(y)$. Wówczas $y\in\ker(f_1-f_2)$. Poniewa¿ $\ker(f_1-f_2)\subset\operatorname{im}(g)$, zatem istnieje $x\in X$ taki, ¿e $y=g(x)$.\vskip6pt\noindent
+Rozwa¿my $x\in X$ taki, ¿e $y=g(x)$. Wówczas $y\in\operatorname{im}(g)$. Poniewa¿ \\ $\ker(f_1-f_2)\supset\operatorname{im}(g)$, zatem $f_1(y)=f_2(y)$, co koñczy dowód faktu, ¿e ci¹g (\ref{groth5}) jest ci¹giem Grothendiecka drugiego rodzaju.\cnd
+\begin{lem}\label{lem12}
+Niech
+\begin{equation}
+\begindc{0}[3]
+\obj(14,1){$X$}
+\obj(30,1){$Y$}
+\obj(44,1){$Z$}
+\mor(14,2)(30,2){$\scriptstyle f_1$}
+\mor(14,0)(30,0){$\scriptstyle f_2$}[-1,0]
+\mor(30,1)(44,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+bêdzie ci¹giem Grothendiecka pierwszego rodzaju. Niech $A$ bêdzie funktorem odwzorowañ oraz niech $N$ bêdzie dowolnym $R$-modu³em. Wówczas
+\begin{equation}
+\begindc{0}[3]
+\obj(10,0)[X]{$A(Z,N)$}
+\obj(35,0)[Y]{$A(Y,N)$}
+\obj(60,0)[Z]{$A(X,N)$}
+\mor{X}{Y}{$\scriptstyle g^*$}
+\mor(40,1)(55,1){$\scriptstyle f_1^*$}
+\mor(40,-1)(55,-1){$\scriptstyle f_2^*$}[-1,0]
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka drugiego rodzaju wtedy i tylko wtedy, gdy dla ka¿dego $\varphi\in A(Y,N)$ istnieje dok³adnie jedno uzupe³nienie diagramu przemiennego
+$$
+\begindc{0}[3]
+\obj(14,27)[X]{$X$}
+\obj(30,27)[Y]{$Y$}
+\obj(44,27)[Z]{$Z$}
+\obj(30,11)[N]{$N$}
+\mor(14,28)(30,28){$\scriptstyle f_1$}
+\mor(14,26)(30,26){$\scriptstyle f_2$}[-1,0]
+\mor{Y}{Z}{$\scriptstyle g$}
+\mor{X}{N}{}
+\mor{Y}{N}{$\scriptstyle \varphi$}
+\enddc
+$$
+tzn. takiego, ¿e $\varphi\circ f_1=\varphi\circ f_2$, do diagramu przemiennego
+\begin{equation}\label{diag11}
+\begindc{0}[3]
+\obj(14,8)[X]{$X$}
+\obj(30,8)[Y]{$Y$}
+\obj(44,8)[Z]{$Z$}
+\obj(30,-8)[N]{$N$}
+\mor(14,9)(30,9){$\scriptstyle f_1$}
+\mor(14,7)(30,7){$\scriptstyle f_2$}[-1,0]
+\mor{Y}{Z}{$\scriptstyle g$}
+\mor{X}{N}{}
+\mor{Y}{N}{$\scriptstyle \varphi$}
+\mor{Z}{N}{$\scriptstyle \psi$}[1,1]
+\enddc
+\end{equation}
+tzn. takiego, ¿e dodatkowo $\psi\circ g=\varphi$, gdzie $\psi\in A(Z,N)$.
+\end{lem}
+\dowod \\ $(\Rightarrow):$ Bezpoœrednio z Definicji \ref{df1} otrzymujemy, ¿e skoro $f_1^*(\varphi)=\varphi\circ f_1=$\\$=\varphi\circ f_2=f_2^*(\varphi)$, to istnieje $\psi\in A(Z,N)$ takie, ¿e $g^*(\psi)=\varphi$, tzn. $\psi\circ g=\varphi$. Zauwa¿my ponadto, ¿e istnienie dok³adnie jednego $\psi$ jest równowa¿ne temu, ¿e $g^*$ jest monomorfizmem.\\
+$(\Leftarrow):$ Za³ó¿my, ¿e istnieje $\psi\in A(Z,N)$ takie, ¿e $g^*(\psi)=\psi\circ g=\varphi$ dla $\varphi\in A(Y,N)$. Wówczas $g$ jest epimorfizmem oraz
+$$f_1^*(\varphi)=\varphi\circ f_1=\psi\circ g\circ f_1=\psi\circ g\circ f_2=\varphi\circ f_2=f_2^*(\varphi),$$
+gdy¿ $g\circ f_1=g\circ f_2$ z za³o¿enia.\\
+Je¿eli teraz $f_1^*(\varphi)=f_2^*(\varphi)$, tzn. $\varphi\circ f_1=\varphi\circ f_2$, to z za³o¿enia wynika, ¿e istnieje dok³adnie jedno $\psi\in A(Z,N)$ takie, ¿e $\varphi=\psi\circ g$, tzn. $g^*(\psi)=\varphi$. \cnd
+
+
+\begin{wn}\label{wn3}
+Niech
+\begin{equation}\label{diag9}
+\begindc{0}[3]
+\obj(14,1){$X$}
+\obj(30,1){$Y$}
+\obj(44,1){$Z$}
+\mor(14,2)(30,2){$\scriptstyle f_1$}
+\mor(14,0)(30,0){$\scriptstyle f_2$}[-1,0]
+\mor(30,1)(44,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+bêdzie ci¹giem Grothendiecka pierwszego rodzaju oraz niech $N$ bêdzie dowolnym $R$-modu³em. Wówczas
+\begin{equation}\label{diag10}
+\begindc{0}[3]
+\obj(10,1)[X]{$\map(Z,N)$}
+\obj(40,1)[Y]{$\map(Y,N)$}
+\obj(70,1)[Z]{$\map(X,N)$}
+\mor{X}{Y}{$\scriptstyle g^*$}
+\mor(47,2)(63,2){$\scriptstyle f_1^*$}
+\mor(47,0)(63,0){$\scriptstyle f_2^*$}[-1,0]
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka drugiego rodzaju.
+\end{wn}
+\dowod
+Zgodnie z poprzednim lematem poka¿emy, ¿e diagram (\ref{diag11}) mo¿na jednoznacznie uzupe³niæ odwzorowaniem $\psi\in\map(X,Y)$. Poniewa¿ $g$ jest epimorfizmem, wiêc ka¿dy element $z\in Z$ jest postaci $z=g(y)$ dla pewnego $y\in Y$. Odwzorowanie $\psi: Z\rightarrow N$ ma uzupe³niaæ diagram (\ref{diag11}), wobec czego musi byæ okreœlone wzorem $\psi(z)=\varphi(y)$, dla $z=g(y)$, $\varphi\in \map(Y,N)$. Wobec tego $\psi$ jest wyznaczone jednoznacznie. Odwzorowanie $\psi$ jest poprawnie okreœlone. Istotnie, niech $z=g(y)=g(y')$. Ci¹g (\ref{diag9}) jest ci¹giem Grothendiecka pierwszego rodzaju, co oznacza, ¿e istnieje $x\in X$, dla którego $y=f_1(x)$ i $y'=f_2(x)$. St¹d
+$$\varphi(y)=\varphi\big(f_1(x)\big)=\varphi\big(f_2(x)\big)=\varphi(y').$$
+Zatem $\psi$ jest poprawnie okreœlone i jest jedynym uzupe³nieniem diagramu (\ref{diag11}).
+Z Lematu \ref{lem12} wynika, ¿e (\ref{diag10}) jest ci¹giem Grothendiecka drugiego rodzaju. \cnd
+
+\begin{tw}\label{wn1a}
+Ci¹g
+\begin{equation}\label{groth13}
+\begindc{0}[3]
+\obj(14,1){$X$}
+\obj(30,1){$Y$}
+\obj(44,1){$Z$}
+\mor(14,2)(30,2){$\scriptstyle f_1$}
+\mor(14,0)(30,0){$\scriptstyle f_2$}[-1,0]
+\mor(30,1)(44,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka pierwszego rodzaju wtedy i tylko wtedy, gdy dla dowolnego $N\in\rmod$ ci¹g
+\begin{equation}\label{groth14}
+\begindc{0}[3]
+\obj(10,1)[X]{$\Hom(Z,N)$}
+\obj(42,1)[Y]{$\Hom(Y,N)$}
+\obj(74,1)[Z]{$\Hom(X,N)$}
+\mor{X}{Y}{$\scriptstyle g^*$}
+\mor(51,2)(65,2){$\scriptstyle f_1^*$}
+\mor(51,0)(65,0){$\scriptstyle f_2^*$}[-1,0]
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka drugiego rodzaju oraz dla dowolnego $y\in Y$ istnieje $x\in X$ taki, ¿e $y=f_1(x)=f_2(x)$.
+\end{tw}
+\dowod \\ $(\Rightarrow)$: Wystarczy zauwa¿yæ, ¿e odwzorowanie $\psi$ okreœlone we Wniosku \ref{wn3} jest \\$R$-homomorfizmem. Istotnie, niech $z\!=\!g(y)$ oraz $z'\!=\!g(y')$ dla pewnych $y,y'\!\in\!Y$. Wówczas
+$$\psi(z+z')=\varphi(y+y')=\varphi(y)+\varphi(y')=\psi(z)+\psi(z'),$$
+gdy¿ $\varphi\in\Hom(Y,N)$. Ponadto, je¿eli $r\in R$, to
+$$\psi(rz)=\varphi(ry)=r\varphi(y)=r\psi(z),$$
+sk¹d $\psi\in\Hom(Y,N)$.\vskip6pt\noindent
+$(\Leftarrow):$ Niech (\ref{groth14}) bêdzie ci¹giem Grothendiecka drugiego rodzaju. Zauwa¿my, ¿e je¿eli $g^*$ jest monomorfizmem, to $g$ jest epimorfizmem na podstawie Lematu \ref{lem6}. Niech $N=Y/\operatorname{im}(f_1-f_2)$ oraz niech $\nu : Y\ra Y/\operatorname{im}(f_1-f_2)$ bêdzie homomorfizmem naturalnym. Wówczas $\nu\in\ker (f_1-f_2)^*$, gdy¿ $\nu\circ(f_1-f_2)=0$. Zatem $\nu\circ f_1=\nu \circ f_2$, co oznacza, ¿e $f_1^*(\nu)=f_2^*(\nu)$. Wobec tego istnieje $\psi\in\Hom(Z,N)$ takie, ¿e $\nu=\psi\circ g$.\\
+Je¿eli $g(y_1)=g(y_2)$, to $y_1-y_2\in\ker(g)$. Zatem $\psi\big(g(y_1-y_2)\big)=\psi(0)=0$, sk¹d $\nu(y_1-y_2)=0$. Oznacza to, ¿e $y_1-y_2\in\operatorname{im}(f_1-f_2)$, wobec czego istnieje $x'\in X$ taki, ¿e $y_1-y_2=f_1(x')-f_2(x')$. St¹d $y_1-f_1(x')=y_2-f_2(x')$, wiêc z za³o¿enia wynika, ¿e $y_1-f_1(x')=f_1(x'')$ oraz $y_2-f_2(x')=f_2(x'')$ dla pewnego $x''\in X$. K³ad¹c $x=x'+x''$ otrzymujemy, ¿e $y_1=f_1(x)$ i $y_2=f_2(x)$.\vskip6pt\noindent
+Pozostaje udowodniæ, ¿e je¿eli $f_1^*\circ g^*=f_2^*\circ g^*$, to $f_1\circ g=f_2\circ g$ (dla ka¿dego $R$-modu³u $N$). Oznaczmy $$h=g\circ f_1-g\circ f_2.$$ Wówczas $h^*:\Hom(Y,N)\ra\Hom(X,N)$ i $h^*=f_1^*\circ g^*-f_2^*\circ g^*=0$ dla ka¿dego $N\in\rmod$. W szczególnoœci dla $N=Y$ otrzymujemy, ¿e $h^*(\id_Y)\!=\!0$, sk¹d $h=0$. Wobec tego $g\circ f_1=g\circ f_2$. \cnd
+
+
+\section{Granice proste}
+Celem tego podrozdzia³u jest przedstawienie podstawowych faktów dotycz¹cych prostych systemów $R$-modu³ów oraz ich granic. Czytelnika zainteresowa\-nego dok³adniejszym omówieniem tematu odsy³amy do ksi¹¿ki \cite{2}.
+\begin{df}
+Niech $S$ bêdzie zbiorem czêœciowo uporz¹dkowanym relacj¹ $\leq$. Zbiór $S$ nazywamy zbiorem skierowanym, o ile spe³niony jest nastêpuj¹cy warunek:
+\begin{enumerate}
+\item[] jeœli $\alpha,\beta\in S$, to istnieje $\gamma\in S$ takie, ¿e $\alpha\leq \gamma$ i $\beta\leq \gamma$.
+\end{enumerate}
+\end{df}
+\begin{ex}
+Niech $X$ bêdzie dowolnym zbiorem oraz niech $S$ oznacza ro\-dzinê wszystkich skoñczonych podzbiorów zbioru $X$. Wówczas $S$ jest zbiorem skierowanym wzglêdem relacji zawierania $\subset$.
+\end{ex}
+Ka¿dy zbiór liniowo uporz¹dkowany jest zbiorem skierowanym. Zbiór czêœciowo uporz¹dkowany zawieraj¹cy element najwiêkszy jest skierowany.
+\begin{df}
+Niech $S$ bêdzie zbiorem skierowanym. Systemem prostym $R$-modu³ów nad zbiorem $S$ nazywamy uk³ad $\{X_\alpha, f^\alpha_\beta\}$, gdzie $X_\alpha\in\rmod$ dla $\alpha\in S$ oraz $f^\alpha_\beta:X_\alpha\rightarrow X_\beta$ jest $R$-homomorfizmem dla $\alpha\leq \beta$, jeœli spe³nione s¹ nastêpuj¹ce warunki:
+\begin{enumerate}
+\item[1.] $f^\alpha_\alpha=\id_{X_\alpha}$, $\alpha\in S$,
+\item[2.] jeœli $\alpha\leq \beta\leq \gamma$, to diagram
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(18,20)[2]{$X_\beta$}
+\obj(18,2)[3]{$X_\gamma$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle f^\beta_\gamma$}
+\mor{1}{3}{$\scriptstyle f^\alpha_\gamma$}
+\enddc
+$$
+jest przemienny, tzn. $f^\beta_\gamma\circ f^\alpha_\beta=f^\alpha_\gamma$.
+\end{enumerate}
+\end{df}
+\begin{df}
+Niech $\{X_\alpha,f^\alpha_\beta\}$ bêdzie systemem prostym $R$-modu³ów nad zbiorem skierowanym $S$. Granic¹ tego systemu nazywamy $R$-modu³ $X$ wraz z odwzo\-rowaniami $f^\alpha:X_\alpha\rightarrow X$, $\alpha\in S$, o ile spe³nione s¹ warunki:
+\begin{enumerate}
+\item[1.] dla dowolnych $\alpha,\beta\in S$, $\alpha\leq \beta$, diagram
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(18,20)[2]{$X_\beta$}
+\obj(18,2)[3]{$X$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle f^\beta$}
+\mor{1}{3}{$\scriptstyle f^\alpha$}
+\enddc
+$$
+jest przemienny, tzn. $f^\beta\circ f^\alpha_\beta=f^\alpha$,
+\item[2.] jeœli $Y\in\rmod$ oraz dla dowolnego $\alpha\in S$ okreœlone s¹ $R$-homomorfizmy $g^\alpha:X_\alpha\rightarrow Y$ takie, ¿e diagramy
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(18,20)[2]{$X_\beta$}
+\obj(18,2)[3]{$Y$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle g^\beta$}
+\mor{1}{3}{$\scriptstyle g^\alpha$}
+\enddc
+$$
+s¹ przemienne dla wszystkich $\alpha\leq \beta$, to istnieje dok³adnie jeden $R$-ho\-momorfizm $g:X\rightarrow Y$ taki, ¿e wszystkie diagramy
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(18,20)[2]{$X$}
+\obj(18,2)[3]{$Y$}
+\mor{1}{2}{$\scriptstyle f^\alpha$}
+\mor{2}{3}{$\scriptstyle g$}[1,1]
+\mor{1}{3}{$\scriptstyle g^\alpha$}
+\enddc
+$$
+s¹ przemienne, tzn. $g\circ f^\alpha=g^\alpha$ dla $\alpha\in S$.
+\end{enumerate}
+\end{df}
+Granicê systemu prostego $\{X_\alpha,f^\alpha_\beta\}$ oznaczamy $\underset{\longrightarrow}{\lim}\{X_\alpha,f^\alpha_\beta\}$ lub $\underset{\longrightarrow}{\lim}X_\alpha$.
+\begin{tw}\emph{(\cite{2}, Twierdzenie 2.14)}
+Jeœli $\{X_\alpha,f^\alpha_\beta\}$ jest prostym systemem $R$-modu³ów nad zbiorem skierowanym $S$, to istnieje granica $\underset{\longrightarrow}{\lim}X_\alpha$ i jest wyznaczona jednoznacznie z dok³adnoœci¹ do izomorfizmu.
+\end{tw}
+Powy¿szego twierdzenia nie dowodzimy miêdzy innymi dlatego, ¿e nigdzie nie bêdziemy korzystali z konstrukcji $\Lim X_\alpha$.
+\begin{lem}\label{lem13}
+Niech $\{X_\alpha\}_{\alpha\in S}$ bêdzie skierowan¹ rodzin¹ podmodu³ów $R$-modu³u $X$, tzn. $X_\alpha\subset X_\beta$ o ile $\alpha\leq\beta$. Niech $f^\alpha_\beta :X_\alpha\ra X_\beta$ bêd¹ w³o¿eniami dla $\alpha\leq\beta$. Wówczas $\{X_\alpha,f^\alpha_\beta\}$ jest prostym systemem $R$-modu³ów. Ponadto, je¿eli $X=\underset{\alpha\in S}\bigcup X_\alpha$, to $\Lim X_\alpha=X$, przy czym $f^\alpha:X_\alpha\ra X$ s¹ w³o¿eniami.
+\end{lem}
+\dowod Oczywiœcie $f^\alpha_\alpha=\id_{X_\alpha}$ oraz dla $\alpha\leq\beta\leq\gamma$ diagramy
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(18,20)[2]{$X_\beta$}
+\obj(18,2)[3]{$X_\gamma$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle f^\beta_\gamma$}
+\mor{1}{3}{$\scriptstyle f^\alpha_\gamma$}
+\enddc
+$$
+s¹ przemienne, sk¹d $\{X_\alpha,f^\alpha_\beta\}$ jest prostym systemem $R$-modu³ów.
+Niech $X=$\\$=\underset{\alpha\in S}\bigcup X_\alpha$. Wówczas dla dowolnych $\alpha,\beta$, $\alpha\leq\beta$ diagramy
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(18,20)[2]{$X_\beta$}
+\obj(18,2)[3]{$X$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle f^\beta$}
+\mor{1}{3}{$\scriptstyle f^\alpha$}
+\enddc
+$$
+s¹ przemienne, gdy¿ $f^\alpha$, $f^\beta$ oraz $f^\alpha_\beta$ s¹ w³o¿eniami. Niech $Y$ bêdzie dowolnym $R$-modu³em oraz niech dla dowolnego $\alpha$ okreœlone bêd¹ $R$-homomorfizmy \\ $g^\alpha:X_\alpha\ra Y$ takie, ¿e diagramy
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(18,20)[2]{$X_\beta$}
+\obj(18,2)[3]{$Y$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle g^\beta$}
+\mor{1}{3}{$\scriptstyle g^\alpha$}
+\enddc
+$$
+s¹ przemienne. Nale¿y okreœliæ odwzorowanie $g:X\ra Y$ w ten sposób, aby diagramy
+\begin{equation}\label{diag13}
+\begindc{0}[3]
+\obj(1,9)[1]{$X_\alpha$}
+\obj(18,9)[2]{$X$}
+\obj(18,-8)[3]{$Y$}
+\mor{1}{2}{$\scriptstyle f^\alpha$}
+\mor{2}{3}{$\scriptstyle g$}
+\mor{1}{3}{$\scriptstyle g^\alpha$}
+\enddc
+\end{equation}
+by³y przemienne dla wszystkich $\alpha\in S$. Zauwa¿my, ¿e je¿eli $x\in X$, to istnieje takie $\alpha\in S$, ¿e $x\in X_\alpha$. Z przemiennoœci diagramów (\ref{diag13}) wynika, ¿e $g(x)=$\\$=g^\alpha(x)$, zatem w szczególnoœci $g$ jest co najwy¿ej jedno. Odwzorowanie $g$ jest poprawnie okreœlone. Istotnie, niech $x\in X_\alpha$ oraz $x\in X_\beta$. Wówczas istnieje wskaŸnik $\gamma$ taki, ¿e $\alpha,\beta\leq\gamma$. St¹d
+$$g^\alpha(x)=g^\gamma\big(f^\alpha_\gamma(x)\big)=g^\gamma(x)=g^\gamma\big(f^\beta_\gamma(x)\big)=g^\beta(x).$$
+Oczywiœcie z definicji wynika, ¿e $g$ uzupe³nia diagramy (\ref{diag13}). Pozostaje pokazaæ, ¿e $g$ jest $R$-homomorfizmem. Niech $x,x'\in X$. Wobec tego istniej¹ $\alpha$ i $\beta$ takie, ¿e $x\in X_\alpha$ i $x'\in X_\beta$. Poniewa¿ $S$ jest zbiorem skierowanym, zatem istnieje $\gamma$ takie, ¿e $\alpha,\beta\leq\gamma$ oraz $x,x'\in X_\gamma$, sk¹d $x+x'\in X_\gamma$. Wówczas
+$$g(x+x')=g^\gamma(x+x')= g^\gamma(x)+g^\gamma(x')=g(x)+g(x').$$
+Niech $r\in R$. Wówczas, jeœli $x\in X_\alpha$, to $rx\in X_\alpha$, wiêc
+$$g(rx)=g^\alpha(rx)=rg^\alpha(x)=rg(x).$$
+Wobec tego $X=\Lim X_\alpha$. \cnd
+\begin{ex}\emph{(\cite{2}, Przyk³ad 13, Przyk³ad 19)}\label{ex1}
+Niech $X$ bêdzie dowolnym $R$-mo\-du³em. Rozwa¿ym zbiór $S$ wszystkich skoñczonych (odp. co najwy¿ej przeliczalnych) podzbiorów zbioru $X$. Jeœli $\alpha\in S$ oraz $\alpha=X'$, to przez $X_\alpha$ oznaczmy podmodu³ $RX'$. Jeœli $\beta\in S$ oraz $\alpha\leq\beta$, to $X_\alpha\subset X_\beta$ i $R$-homomorfizm $f^\alpha_\beta:X_\alpha\ra X_\beta$ okreœlamy jako w³o¿enie, tzn. $f^\alpha_\beta(x)=x$ dla $x\in X_\alpha$. Wówczas $\{X_\alpha, f^\alpha_\beta\}$ jest prostym systemem $R$-modu³ów nad zbiorem skierowanym $S$ oraz $\Lim X_\alpha=X$.\vskip6pt\noindent
+Zauwa¿my, ¿e $\{X_\alpha\}_{\alpha\in S}$ jest skierowan¹ rodzin¹ podmodu³ów $R$-modu³u $X$. Wobec tego $\{X_\alpha,f^\alpha_\beta\}$ jest prostym systemem $R$-modu³ów na podstawie powy¿\-szego lematu. Ponadto $X=\underset{\alpha\in S}{\bigcup}X_\alpha$, gdy¿ dowolny element $x\in X$ jest elementem skoñczenie generowanego $R$-modu³u $Rx$. Z Lematu \ref{lem13} wynika zatem, ¿e $R$-modu³ $X$ wraz z w³o¿eniami $f^\alpha:X_\alpha\ra X$ jest granic¹ prost¹ systemu $\{X_\alpha,f^\alpha_\beta\}$.
+\end{ex}
+Zanotujmy jeszcze twierdzenie, z którego bêdziemy czêsto korzystali:
+\begin{tw}\emph{(\cite{2}, Twierdzenie 2.12, Twierdzenie 2.16)}\label{tw9}
+Jeœli $R$-modu³ $X$ wraz z $R$-homomorfizmami $f^\alpha:X_\alpha\rightarrow X$ jest granic¹ systemu prostego $\{X_\alpha,f^\alpha\}$, to $X=\underset{\alpha}{\bigcup}\operatorname{im}(f^\alpha)$ oraz $\ker(f^\alpha)=\underset{\beta\geq\alpha}{\bigcup}\ker(f^\alpha_\beta)$.
+\end{tw}
+\begin{df}
+Niech $\{X_\alpha,f^\alpha_\beta\}$ bêdzie dowolnym prostym systemem $R$-modu³ów nad zbiorem skierowanym $S$. Niech $X$ wraz z $R$-homomorfizmami $f^\alpha:X_\alpha\ra X$ bêdzie granic¹ prost¹ tego systemu. Mówimy, ¿e funktor $F:\rmod\ra\rmod$ zachowuje granice proste je¿eli $F(X)$ wraz z $R$-homomorfizmami $F(f^\alpha)$ jest granic¹ prost¹ systemu $\big\{F(X_\alpha),F(f^\alpha_\beta)\big\}$.
+\end{df}
+\begin{df}
+Niech $S$ bêdzie zbiorem skierowanym oraz niech $\{X_\alpha,f^\alpha_\beta\}$ i $\{Y_\alpha,g^\alpha_\beta\}$ bêd¹ prostymi systemami $R$-modu³ów nad zbiorem skierowanym $S$. Homomorfizmem systemów
+$$\varphi:\{X_\alpha,f^\alpha_\beta\}\ra\{Y_\alpha,g^\alpha_\beta\}$$
+nazywamy tak¹ rodzinê $R$-homomorfizmów $\varphi=\{\varphi_\alpha\}_{\alpha\in S}$, ¿e dla ka¿dego $\alpha\in S$ oraz dla wszystkich $\beta$ takich, ¿e $\alpha\leq\beta$ diagramy
+\begin{equation}\label{diag16}
+\begindc{0}[3]
+\obj(1,9)[1]{$X_\alpha$}
+\obj(1,-8)[4]{$Y_\alpha$}
+\obj(18,9)[2]{$X_\beta$}
+\obj(18,-8)[3]{$Y_\beta$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{4}{3}{$\scriptstyle g^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle \varphi_\beta$}
+\mor{1}{4}{$\scriptstyle \varphi_\alpha$}
+\enddc
+\end{equation}
+s¹ przemienne.
+\end{df}
+Zauwa¿my, ¿e jeœli $\phi:F\ra G$ jest przekszta³ceniem funktorów, to dla dowolnego systemu prostego $\{X_\alpha, f^\alpha_\beta\}$ mamy homomorfizm systemów $$\varphi=\{\varphi_\alpha\}:\big\{F(X_\alpha),F(f^\alpha_\beta)\big\}\ra \big\{G(X_\alpha),G(f^\alpha_\beta)\big\},$$ gdzie $\varphi_\alpha=\phi(X_\alpha):F(X_\alpha)\ra G(X_\alpha)$. \vskip6pt\noindent
+Niech $\{X_\alpha,f^\alpha_\beta\}$ i $\{Y_\alpha,g^\alpha_\beta\}$ bêd¹ prostymi systemami $R$-modu³ów nad zbiorem skierowanym $S$ i niech $\varphi=\{\varphi_\alpha\}_{\alpha\in S}$ bêdzie homomorfizmem systemów. Wówczas dla dowolnych $\alpha\leq\beta$ diagram
+\begin{equation}
+\begindc{0}[3]
+\obj(0,18)[q]{$X_\alpha$}
+\obj(0,1)[a]{$Y_\alpha$}
+\obj(18,18)[w]{$X_\beta$}
+\obj(18,1)[s]{$Y_\beta$}
+\obj(9,-15)[z]{$\Lim Y_\alpha$}
+\mor{q}{w}{$\scriptstyle f^\alpha_\beta$}
+\mor{a}{s}{$\scriptstyle g^\alpha_\beta$}
+\mor{w}{s}{$\scriptstyle \varphi_\beta$}
+\mor{q}{a}{$\scriptstyle \varphi_\alpha$}
+\mor{a}{z}{$\scriptstyle g_\alpha$}
+\mor{s}{z}{$\scriptstyle g_\beta$}
+\enddc
+\end{equation}
+jest przemienny, wobec czego istnieje dok³adnie jedno uzupe³nienie diagramów
+\begin{equation}
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(30,20)[2]{$X_\beta$}
+\obj(16,-10)[3]{$\Lim Y_\alpha$}
+\obj(16,5)[4]{$\Lim X_\alpha$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{1}{4}{$\scriptstyle f^\alpha$}
+\mor{2}{4}{$\scriptstyle f^\beta$}
+\cmor((1,18)(4,-3)(9,-9))
+\pright(-2,1){$\scriptstyle g^\alpha\circ\varphi_\alpha$}
+\cmor((30,18)(27,-3)(22,-9))
+\pleft(33,1){$\scriptstyle g^\beta\circ\varphi_\beta$}
+%\mor{2}{3}{$\scriptstyle g^\alpha\circ\varphi_\alpha$}
+%\mor{1}{3}{$\scriptstyle g^\beta\circ\varphi_\beta$}
+\enddc
+\end{equation}
+do diagramu przemiennego
+\begin{equation}
+\begindc{0}[3]
+\obj(1,20)[1]{$X_\alpha$}
+\obj(30,20)[2]{$X_\beta$}
+\obj(16,-10)[3]{$\Lim Y_\alpha$}
+\obj(16,5)[4]{$\Lim X_\alpha$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{1}{4}{$\scriptstyle f^\alpha$}
+\mor{2}{4}{$\scriptstyle f^\beta$}
+\cmor((1,18)(4,-3)(9,-9))
+\pright(-2,1){$\scriptstyle g^\alpha\circ\varphi_\alpha$}
+\cmor((30,18)(27,-3)(22,-9))
+\pleft(33,1){$\scriptstyle g^\beta\circ\varphi_\beta$}
+\mor(16,5)(16,-10){}[1,1]
+\enddc
+\end{equation}
+które bêdziemy oznaczaæ przez $\Lim \varphi_\alpha$. Wobec tego $\Lim \varphi_\alpha$ jest jedynym uzupe³nieniem wszystkich diagramów
+\begin{equation}\label{diag18}
+\begindc{0}[3]
+\obj(1,9)[1]{$X_\alpha$}
+\obj(1,-8)[4]{$\Lim X_\alpha$}
+\obj(25,9)[2]{$Y_\alpha$}
+\obj(25,-8)[3]{$\Lim Y_\alpha$}
+\mor{1}{2}{$\scriptstyle \varphi_\alpha$}
+\mor{4}{3}{$\scriptstyle \Lim \varphi_\alpha$}
+\mor{2}{3}{$\scriptstyle g^\alpha$}
+\mor{1}{4}{$\scriptstyle f^\alpha$}
+\enddc
+\end{equation}
+W przysz³oœci bêdzie nam potrzebne
+\begin{tw}\emph{(\cite{2}, Twierdzenie 4.12)}\label{tw10}
+Niech $\{X_\alpha, f^\alpha_\beta\}$ i $\{Y_\alpha, g^\alpha_\beta\}$ bêd¹ pros\-tymi systemami $R$-modu³ow nad zbiorem skierowanym $S$. Niech $X$ wraz z \\$R$-ho\-mo\-morfizmami $f^\alpha:X_\alpha\ra X$ bêdzie granic¹ systemu $\{X_\alpha, f^\alpha_\beta\}$ oraz niech $Y$ wraz z $R$-homomorfizmami $g^\alpha:Y_\alpha\ra Y$ bêdzie granic¹ systemu $\{Y_\alpha, g^\alpha_\beta\}$. Niech $\varphi:\{X_\alpha, f^\alpha_\beta\}\ra\{Y_\alpha, g^\alpha_\beta\}$, $\varphi=\{\varphi_\alpha\}_{\alpha\in S}$ bêdzie homomorfizmem systemów. Wówczas
+$$\ker(\Lim \varphi_\alpha)=\bigcup_\alpha f^\alpha\big(\ker(\varphi_\alpha)\big).$$
+\end{tw}
+
+
+
+
+
+\chapter{Funktor modu³u wolnego $\F$}
+\hskip20pt Poni¿szy rozdzia³ wprowadza funktor modu³u wolnego $\F$. Podajemy pewne istotne w³asnoœci, miêdzy innymi to, ¿e $\F$ zachowuje granice proste (Twierdzenie \ref{tw8}) oraz to, ¿e funktor $\F$ reprezentuje funktor $\map$ (Lemat \ref{lem14}).\vskip6pt\noindent
+Przypomnijmy, ¿e zgodnie z Lematem \ref{tw5} dla ka¿dego zbioru $X$ istnieje $R$-modu³ wolny, którego baz¹ jest zbiór $X$. Wobec tego prawdziwy jest nastêpuj¹cy
+\begin{wn}\label{wn1}
+Dla ka¿dego $R$-modu³u $X$ istnieje $R$-modu³ wolny $\F(X)$, którego baz¹ jest zbiór $X$.
+\end{wn}
+Niech $x$ bêdzie dowolnym elementem $R$-modu³u $X$. Wówczas odpowiadaj¹cy mu element bazy $R$-modu³u $\F(X)$ oznaczamy przez $[x]$.
+Zatem istnieje kano\-niczne w³o¿enie $i:X\rightarrow\F(X)$, $i(x)=[x]$, które nie jest $R$-homomorfizmem, gdy¿ $[x+y]\neq[x]+[y]$ oraz $[rx]\neq r[x]$, o ile $r\neq 1$.\vskip6pt\noindent W dalszych rozwa¿aniach zasadnicz¹ rolê odgrywa nastêpuj¹ce twierdzenie bêd¹ce wnioskiem z Twierdzenia \ref{tw1}
+\begin{wn}\label{wn2}
+Dowolne odwzorowanie $\alpha:X\rightarrow Y$ mo¿na jednoznacznie przed³u¿yæ do $R$-homomorfizmu $\bar{\alpha}:\F(X)\rightarrow Y$, dla którego diagram
+$$
+\begindc{0}[3]
+\obj(15,20)[a]{$X$}
+\obj(33,20)[b]{$\F(X)$}
+\obj(33,2)[c]{$Y$}
+\mor{a}{b}{$\scriptstyle i$}[1,3]
+\mor{a}{c}{$\scriptstyle \alpha$}
+\mor{b}{c}{$\scriptstyle \bar{\alpha}$}
+\enddc
+$$
+jest przemienny. Homomorfizm $\bar{\alpha}$ jest okreœlony na bazie wzorem $\bar{\alpha}([x])=\alpha(x)$.
+\end{wn}
+Zauwa¿my, ¿e $\mathcal{F}$ mo¿emy traktowaæ jako funktor kowariantny, który dowolnemu $X\!\in\!\rmod$ przyporz¹dkowuje $\mathcal{F}(X)\!\in\!\rmod$. Istotnie, je¿eli $f\!:\!X\!\ra\!X'$ jest $R$-homomorfizmem, to $\mathcal{F}(f)$ jest $R$-homomorfizmem, bêd¹cym jedynym uzupe³nieniem diagramu
+$$
+\begindc{0}[3]
+\obj(10,20)[11]{$X$}
+\obj(33,20)[12]{$X'$}
+\obj(10,2)[21]{$\mathcal{F}(X)$}
+\obj(33,2)[22]{$\mathcal{F}(X')$}
+\mor{11}{12}{$\scriptstyle f$}
+\mor{11}{21}{$\scriptstyle i$}
+\mor{12}{22}{$\scriptstyle i'$}
+\enddc
+$$
+do diagramu przemiennego
+\begin{equation}\label{diag6}
+\begindc{0}[3]
+\obj(10,9)[11]{$X$}
+\obj(33,9)[12]{$X'$}
+\obj(10,-9)[21]{$\mathcal{F}(X)$}
+\obj(33,-9)[22]{$\mathcal{F}(X')$}
+\mor{11}{12}{$\scriptstyle f$}
+\mor{11}{21}{$\scriptstyle i$}
+\mor{12}{22}{$\scriptstyle i'$}
+\mor{21}{22}{$\scriptstyle \mathcal{F}(f)$}[1,1]
+\enddc
+\end{equation}
+Takie jedyne uzupe³nienie istnieje, gdy¿ na podstawie Twierdzenia \ref{tw1} od\-wzorowaniu $i'\!\circ\!f$ odpowiada wzajemnie jednoznacznie $R$-homomorfizm $\mathcal{F}(f)\!:\!\mathcal{F}(X)\!\!\ra\!\!\mathcal{F}(X')$. Z przemiennoœci diagramu (\ref{diag6}) wynika zatem, ¿e
+$$\big(\F(f)\big)([x])=\big[f(x)\big].$$
+Ponadto $\F(f)$ jest $R$-homomorfizmem, zatem dla dowolnego $\underset{x\in X}{\sum}r_x[x]\in\F(X)$ mamy
+$$\big(\mathcal{F}(f)\big)\big(\sum_{x\in X}r_x[x]\big)=\sum_{x\in X}r_x[f(x)],$$
+gdzie $r_x\in R$, $x\in X$. Ponadto, je¿eli $f:X\rightarrow X'$ oraz $g:X'\rightarrow X''$ s¹ $R$-homomorfizmami, to
+$$
+\begin{aligned}
+\F(g\circ f)([x])&=\big[(f\circ g)(x)\big]=\big[f\big(g(x)\big)\big]=\big(\F(f)\big)\big[g(x)\big]=\\
+&=\big(\F(f)\big)\Big(\big(\F(g)\big)([x])\Big)=\big(\F(f)\circ \F(g)\big)\big([x]\big),
+\end{aligned}
+$$
+zatem $\F(g\circ f)=\F(g)\circ\F(f)$. Równie¿
+$$\big(\F(\id_X)\big)([x])=[\id_X(x)]=[x]=\id_{\F(X)}(x),$$
+sk¹d $\F(\id_X)=\id_{\F(X)}$. Pokazaliœmy tym samym, ¿e warunki Definicji \ref{funktor1a} s¹ spe³nione, zatem $\F:R\operatorname{-Mod}\rightarrow R\operatorname{-Mod}$ jest rzeczywiœcie funktorem.\vskip6pt\noindent
+W nastêpnym rozdziale przydatny bêdzie nastêpuj¹cy
+\begin{lem}\label{lem8}
+Niech $f:X'\rightarrow X$, $g:Y\rightarrow Y$ bêd¹ $R$-homomorfizmami oraz niech $\alpha: X\rightarrow Y$ bêdzie dowolnym odwzorowaniem. Wówczas
+\begin{enumerate}
+\item[\emph{(1)}] $g \circ \bar{\alpha}=\overline{g\circ\alpha}$,
+\item[\emph{(2)}] $\overline{\alpha\circ f}=\bar{\alpha}\circ \F(f)$.
+\item[\emph{(3)}] $\overline{g\circ\alpha\circ f}=g\circ\bar{\alpha}\circ \F(f)$.
+\end{enumerate}
+\end{lem}
+\dowod Poniewa¿ po obu stronach równoœci (1) i (2) wystêpuj¹ homomorfizmy i z³o¿enia homomorfizmów okreœlone na modu³ach wolnych $\F(X)$ i $\F(X')$, wiêc wystarczy sprawdziæ te równoœci na elementach bazy. Niech $x\in X$, wówczas
+$$(g\circ\bar{\alpha})([x])=g\big(\bar{\alpha}([x])\big)= g\big(\alpha(x)\big)=(g\circ\alpha)(x)=\overline{(g\circ\alpha)}([x]),$$
+sk¹d $g\circ \bar{\alpha}=\overline{g\circ \alpha}$. Podobnie
+$$
+\begin{aligned}
+\big(\bar{\alpha}\circ\F(f)\big)\big([x]\big)&=\bar{\alpha}\big(\F(f)([x])\big)= \bar{\alpha}\big([f(x)]\big)=\\
+&=\alpha\big(f(x)\big)=(\alpha\circ f)(x)=\overline{(\alpha\circ f)}\big([x]\big).
+\end{aligned}
+$$
+sk¹d $\bar{\alpha}\circ\F(f)=\overline{\alpha\circ f}$.\vskip6pt\noindent
+Wzór (3) jest prost¹ konsekwencj¹ wzorów (1) i (2). Istotnie, k³ad¹c $\beta=g\circ\alpha$ otrzymujemy
+$$\overline{g\circ\alpha\circ f}=\overline{\beta\circ f}=\bar{\beta}\circ\F(f)= \overline{g\circ f}\circ\F(f)=g\circ\bar{\alpha}\circ\F(f).\;\Box$$
+Rozwa¿my dowolny podfunktor $K$ funktora $\F$. Wówczas mo¿emy okreœliæ nowy funktor $\F/K$ k³ad¹c $(\F/K)(X)=\F(X)/K(X)$ dla dowolnego $X\in\rmod$. Niech $f:X\rightarrow Y$ bêdzie dowolnym $R$-homomorfizmem oraz niech \\ $\nu_X:\F(X)\rightarrow \F(X)/K(X)$, $\nu_Y:\F(Y)\rightarrow \F(Y)/K(Y)$ bêd¹ homomorfizmami naturalnymi. Poniewa¿ $\F(f)\big(K(X)\big)\subset K(Y)$, wiêc $\big(\nu_Y\circ\F(f)\big)\big(K(X)\big)=0$, wobec czego, na podstawie Twierdzenia \ref{homomor}, istnieje dok³adnie jeden $R$-homomor\-fizm $\F(X)/K(X)\rightarrow \F(Y)/K(Y)$, który oznaczaæ bêdziemy przez $(\F/K)(f)$, dla którego
+$$\big((\F/K)(f)\big)\big(u+K(X)\big)=\big(\nu_Y\circ\F(f)\big)(u)=\F(f)(u)+K(Y),$$
+gdzie $u\in\F(X)$. Wobec tego, je¿eli $u=\underset{x\in X}{\sum}r_x[x]$, gdzie $r_x\in R$, $x\in X$, to
+$$\big((\F/K)(f)\big)\Big(\sum_{x\in X} r_x[x]+K(X)\Big)=\sum_{x\in X} r_x\big[f(x)\big]+K(Y).$$
+Pozostaje pokazaæ, ¿e $\F/K$ jest funktorem. Niech $f:Y\rightarrow Z$ oraz $g:X\rightarrow Y$ bêd¹ $R$-homomorfizmami. Wówczas, dla dowolnego $x\in X$ mamy
+$$
+\begin{aligned}
+(\F/K)&(f\circ g)\big([x]+K(X)\big)=[(f\circ g)(x)]+K(Z)=\big[f\big(g(x)\big)\big]+K(Z)=\\
+&=(\F/K)(f)\Big([g(x)]+K(Y)\Big)=(\F/K)(f)\Big((\F/K)(g)([x]+K(X))\Big)=\\
+&=\Big((\F/K)(f)\circ(\F/K)(g)\Big)\big([x]+K(X)\big).
+\end{aligned}
+$$
+Ponadto
+$$
+\begin{aligned}
+(\F/K)(\id_X)\big([x]+K(X)\big)&=[x]+K(X)=\id_{(\F/K)(X)}\big([x]+K(X)\big),
+\end{aligned}
+$$
+zatem $(\F/K)(\id_X)=\id_{(\F/K)(X)}$, co koñczy dowód faktu, ¿e $\F/K$ jest fun\-ktorem.
+\vskip6pt\noindent
+Okazuje siê, ¿e istnieje wa¿ny zwi¹zek pomiêdzy funktorami $\F$ i $\map$. Z kolej\-nego lematu wynika bowiem, ¿e funktor $\map$ jest reprezentowalny, a $\F$ jest jego funktorem reprezentuj¹cym.
+\begin{lem}\label{lem14}
+Niech $\varphi_{X,Y}$ bêdzie odwzorowaniem, które dowolnemu $f\in\Hom\big(\F(X),Y\big)$ przyporz¹dkowuje odwzorowanie $f\circ i\in\map(X,Y)$, gdzie $i(x)=[x]$. Wówczas dla dowolnych $X,Y\in\rmod$ odwzorowanie $\varphi_{X,Y}$ jest $R$-izomorfimem oraz dla dowolnych $R$-homomorfizmów $g:Y\rightarrow Y'$, $h:X'\rightarrow X$ diagram
+\begin{equation}\label{diag7}
+\begindc{0}[3]
+\obj(15,10)[11]{$\Hom\big(\mathcal{F}(X),Y\big)$}
+\obj(55,10)[12]{$\map(X,Y)$}
+\obj(15,-10)[21]{$\Hom\big(\mathcal{F}(X'),Y'\big)$}
+\obj(55,-10)[22]{$\map(X',Y')$}
+\mor{11}{12}{$\scriptstyle \varphi_{X,Y}$}
+\mor{21}{22}{$\scriptstyle \varphi_{X',Y'}$}
+\mor{11}{21}{$\scriptstyle \Hom(\F(h),g)$}
+\mor{12}{22}{$\scriptstyle \map(h,g)$}
+\enddc
+\end{equation}
+jest przemienny.
+\end{lem}
+\dowod Zauwa¿my najpierw, ¿e $\varphi_{X,Y}$ jest $R$-homomorfizmem, gdy¿ dla dowolnych $x\in X$, $r\in R$ oraz dowolnych $h_1,h_2\in \Hom\big(\F(X),Y\big)$ mamy
+$$
+\begin{aligned}
+\big(\varphi_{X,Y}(h_1+h_2)\big)(x)&=\big((h_1+h_2)\circ i\big)(x)=(h_1+h_2)\big(i(x)\big)=h_1\big(i(x)\big)+h_2\big(i(x)\big)=\\
+&=(h_1\circ i)(x)+(h_2\circ i)(x)=(h_1\circ i+h_2\circ i)(x)=\\
+&=\big(\varphi_{X,Y}(h_1)+\varphi_{X,Y}(h_2)\big)(x),\\
+\big(\varphi_{X,Y}(rh_1)\big)(x)&=\big((rh_1)\circ i\big)(x)=(rh_1)\big(i(x)\big)=rh_1\big(i(x)\big)=r\big((h_1\circ i)(x)\big)\\
+&=\big(r(h_1\circ i)\big)(x)=\big(r\varphi_{X,Y}(h_1)\big)(x).
+\end{aligned}
+$$
+Zatem $\varphi_{X,Y}(h_1+h_2)=\varphi_{X,Y}(h_1)+\varphi_{X,Y}(h_2)$ oraz $\varphi_{X,Y}(rh_1)=r\varphi_{X,Y}(h_1)$, co oznacza, ¿e $\varphi_{X,Y}$ jest $R$-homomorfizmem. Ponadto, z Wniosku \ref{wn2} wynika, ¿e odpowiednioœæ ta jest wzajemnie jednoznaczna, zatem $\varphi_{X,Y}$ jest $R$-izomorfizmem. \vskip6pt\noindent Niech $f\in\Hom\big(\F(X),Y\big)$ oraz niech $i$ bêdzie w³o¿eniem $X$ w $\F(X)$, natomiast $i'$ niech bêdzie w³o¿eniem $X'$ w $\F(X')$. Zauwa¿my teraz, ¿e
+$$
+\begin{aligned}
+&\Big(\varphi_{X',Y'}\circ\Hom\big(\F(h),g\big)\Big)(f)=\varphi_{X',Y'}\Big(\Hom\big(\F(h),g\big)(f)\Big)=\\
+&=\varphi_{X',Y'} \big(g\circ f\circ \F(h)\big)=g\circ f\circ \F(h)\circ i'.
+\end{aligned}
+$$
+Z drugiej strony
+$$
+\begin{aligned}
+\big(\map(h,g)\circ\varphi_{X,Y})(f)=\map(h,g)(\varphi_{X,Y})=g\circ f\circ i\circ h.
+\end{aligned}
+$$
+Aby pokazaæ, ¿e zachodzi równoœæ $g\circ f\circ \F(h)\circ i'=g\circ f\circ i\circ h$ wystarczy pokazaæ, ¿e $\F(h)\circ i'=i\circ h$. Zauwa¿my jednak, ¿e równoœæ ta wynika bezpoœrednio z okreœlenia $\F(h)$. St¹d
+$$\map(h,g)\circ\varphi_{X,Y}=\varphi_{X',Y'}\circ\Hom\big(\F(h),g\big),$$
+co oznacza, ¿e diagram (\ref{diag7}) jest przemienny. \cnd
+\begin{wn}\label{wn4}
+Istnieje naturalny izomorfizm $\Hom\big(\F(X),Y\big)\simeq\map(X,Y)$. Oznacza to, ¿e funktor $\map$ jest reprezentowalny, przy czym $\F$ jest jego funktorem reprezentuj¹cym.
+\end{wn}
+\begin{tw}\label{tw8}
+Funktor $\F$ zachowuje granice proste.
+\end{tw}
+\dowod: Niech $\{X_\alpha,f^\alpha_\beta\}$ bêdzie prostym systemem $R$-modu³ów nad zbiorem skierowanym $S$ oraz niech $R$-modu³ $X$ bêdzie granic¹ tego systemu. Poka¿emy, ¿e $\F(X)$ wraz z $R$-homomorfizmami $\F(f^\alpha)$ jest granic¹ systemu $\big\{\F(X_\alpha),\F(f^\alpha)\big\}$. Poniewa¿ $\F$ jest funktorem, zatem dla dowolnego $\alpha\in S$, z przemiennoœci diagramów
+\begin{equation}\label{diag8}
+\begindc{0}[3]
+\obj(1,9)[1]{$X_\alpha$}
+\obj(18,9)[2]{$X_\beta$}
+\obj(18,-8)[3]{$X$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle f^\beta$}
+\mor{1}{3}{$\scriptstyle f^\alpha$}
+\enddc
+\end{equation}
+wynika, ¿e diagramy
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$\F(X_\alpha)$}
+\obj(22,20)[2]{$\F(X_\beta)$}
+\obj(22,2)[3]{$\F(X)$}
+\mor{1}{2}{$\scriptstyle \F(f^\alpha_\beta)$}
+\mor{2}{3}{$\scriptstyle \F(f^\beta)$}
+\mor{1}{3}{$\scriptstyle \F(f^\alpha)$}
+\enddc
+$$
+s¹ równie¿ przemienne. Niech $Y$ bêdzie dowolnym $R$-modu³em oraz niech dla dowolnego $\alpha\in S$ okreœlone bêd¹ $R$-homomorfizmy $g_\alpha:\F(X_\alpha)\rightarrow Y$ takie, ¿e diagramy
+$$
+\begindc{0}[3]
+\obj(1,20)[1]{$\F(X_\alpha)$}
+\obj(22,20)[2]{$\F(X_\beta)$}
+\obj(22,2)[3]{$Y$}
+\mor{1}{2}{$\scriptstyle \F(f^\alpha_\beta)$}
+\mor{2}{3}{$\scriptstyle g^\beta$}
+\mor{1}{3}{$\scriptstyle g^\alpha$}
+\enddc
+$$
+s¹ przemienne dla wszystkich $\alpha\leq\beta$.\\ Nale¿y okreœliæ odwzorowanie $g:\F(X)\ra Y$ w taki sposób, aby diagramy \begin{equation}\label{diag12}
+\begindc{0}[3]
+\obj(1,20)[1]{$\F(X_\alpha)$}
+\obj(22,20)[2]{$\F(X)$}
+\obj(22,2)[3]{$Y$}
+\mor{1}{2}{$\scriptstyle \F(f^\alpha)$}
+\mor{2}{3}{$\scriptstyle g$}
+\mor{1}{3}{$\scriptstyle g^\alpha$}
+\enddc
+\end{equation}
+by³y przemienne dla wszystkich $\alpha\in S$. Poniewa¿ $X=\Lim X_\alpha$, zatem $X=$\\$=\underset{\alpha}{\bigcup}\operatorname{im}(f^\alpha)$, co oznacza, ¿e dla dowolnego $x\in X$ istnieje $x_\alpha\in X_\alpha$ taki, ¿e $x=f^\alpha(x_\alpha)$. Z przemiennoœci diagramów (\ref{diag12}) wynika, ¿e $g\big([x]\big)=g^\alpha\big([x_\alpha]\big)$. Odwzorowanie $g$ jest poprawnie okreœlone. Istotnie, je¿eli $x=f^\beta(x_\beta)$, to istnieje taki element $\gamma\in S$, ¿e $\alpha,\beta\leq\gamma$. Chcemy pokazaæ, ¿e $g^\alpha\big([x_\alpha]\big)=g^\beta\big([x_\beta]\big)$. Zauwa¿my, ¿e je¿eli $x=f^\alpha(x_\alpha)=f^\beta(x_\beta)$, to $x=f^\gamma\big(f^\alpha_\gamma(x_\alpha)\big)=f^\gamma\big(f^\beta_\gamma(x_\beta)\big)$, sk¹d $f^\alpha_\gamma(x_\alpha)-f^\beta_\gamma(x_\beta)\in\ker(f^\gamma)$. Z Twierdzenia \ref{tw9} wynika zatem, ¿e istnieje taki element $\delta\in S$, ¿e $\gamma\leq\delta$ i $f^\gamma_\delta\big(f^\alpha_\gamma(x_\alpha)-f^\beta_\gamma(x_\beta)\big)=0$, sk¹d $f^\alpha_\delta(x_\alpha)=f^\beta_\delta(x_\beta)$. Wobec tego $$g^\alpha\big([x_\alpha]\big)=g^\delta\big([f^\alpha_\delta(x_\alpha)]\big)=
+g^\delta\big([f^\beta_\delta(x_\beta)]\big)=g^\beta\big([x_\beta]\big),$$
+sk¹d $g$ jest poprawnie okreœlone. Pozostaje pokazaæ, ¿e $g$ jest $R$-homomorfizmem. Istotnie, je¿eli $x=f^\alpha(x_\alpha)$ oraz $x'=f^\alpha(x_\alpha')$, to
+$$g\big([x]+[x']\big)=g^\alpha\big([x_\alpha]+[x_\alpha']\big)=g^\alpha\big([x_\alpha]\big)+ g^\alpha\big([x_\alpha']\big)=g\big([x]\big)+g\big([x']\big).$$
+Podobnie dla $r\in R$ otrzymujemy
+$$g\big(r[x]\big)=g^\alpha\big(r[x_\alpha]\big)=rg^\alpha\big([x_\alpha]\big)=rg\big([x]\big),$$
+sk¹d $g$ jest $R$-homomorfizmem. Zatem funktor $\F$ zachowuje granice proste. \cnd
+
+
+\chapter{Funktory równoœciowo definiowalne}
+\hskip20pt Rozdzia³ 5 oparty zosta³ na pracy \cite{4} oraz na artukule \cite{5}. W pierwszej kolejnoœci dowodzimy Twierdzenia \ref{tw6} charakteryzuj¹cego reprezentowalne funktory odwzorowañ, po czym wprowadzamy pojêce równoœciowo definiowalnej klasy odwzorowañ oraz pojêcie ED-funktora. Nastêpnie dowodzimy Twierdzenia \ref{tw4} charakteryzuj¹cego ED-funktory i bêd¹ce g³ównym wynikiem tej pracy.
+\section{Odpowiednioœæ pomiêdzy funktorami od\-wzo\-ro\-wañ, a pod\-fun\-kto\-ra\-mi funktora $\F$}
+\noindent Niech $\mathscr{K}$ oznacza klasê wszystkich podfunktorow funktora $\mathcal{F}$. Podobnie niech $\mathscr{A}$ oznacza klasê wszystkich funktorów odwzorowañ z $X$ do $Y$ oraz niech $\mathscr{\bar{A}}$ bêdzie podklas¹ wszystkich reprezentowalnych funktorów odwzorowañ z $X$ do $Y$. Rozwa¿my odwzorowania $\Phi :  \mathscr{A}\rightarrow \mathscr{K}$,  $\Psi : \mathscr{K} \rightarrow \mathscr{A}$ okreœlone nastêpuj¹co: $\Phi(A)=K_A$ oraz $\Psi(K)=A_K$, gdzie
+$$
+\begin{aligned}
+&K_A(X)=\big\{u\in\F(X)\;;\;\forall_{Y\in\rmod}\;\forall_{\alpha\in A(X,Y)}\; \bar{\alpha}(u)=0\big\},\\
+&A_K(X,Y)=\big\{\alpha\in\map(X,Y)\;;\;\bar{\alpha}\big(K(X)\big)=0\big\},
+\end{aligned}
+$$
+przy czym $\bar{\alpha}:\F(X)\rightarrow Y$, $\bar{\alpha}\big(\underset{x\in X}{\sum}r_x[x]\big)=\underset{x\in X}{\sum}r_x \alpha(x)$ dla $r_x\in R$, $x\in X$.
+\begin{lem}
+$K_A$ jest podfunktorem funktora $\mathcal{F}$.
+\end{lem}
+\dowod Wprost z okreœlenia $K_A$ wynika, ¿e $K_A(X)\subset\mathcal{F}(X)$ dla dowolnego $R$-modu³u $X$.
+Pozostaje pokazaæ, ¿e $\big(\F(f)\big)\big(K_A(X)\big)\subset K_A(Y)$. \\Niech $u\in K_A(X)$ oraz niech $\alpha\in A(Y,Z)$ dla dowolnie wybranego $R$-modu³u $Z$. Korzystaj¹c z Lematu \ref{lem8} otrzymujemy
+$$\bar{\alpha}\Big(\big(\F(f)\big)(u)\Big)=\big(\bar{\alpha}\circ\F(f)\big)(u)=\overline{(\alpha\circ f)}(u).$$
+Poniewa¿ $\alpha\circ f:X\rightarrow Z$ jest $R$-homomorfizmem oraz $u\in K_A(X)$, zatem $\overline{(\alpha\circ f)}(u)=0$, co oznacza, ¿e $\big(\F(f)\big)(u)\in K_A(Y)$. Wobec tego $$\big(\F(f)\big)\big(K_A(X)\big)\subset K_A(Y),$$ co dowodzi, ¿e $K_A$ jest podfunktorem funktora $\F$. \cnd
+\begin{lem}
+$A_K$ jest podfunktorem funktora $\map$.
+\end{lem}
+\dowod
+Bezpoœrednio z okreœlenia $A_K$ otrzymujemy, ¿e $A_K(X,Y)\subset\map(X,Y)$. Niech $\alpha\in A_K(X,Y)$ oraz niech dane bêd¹ $R$-homomorfizmy $f:X'\rightarrow X$ i $g:Y\rightarrow Y'$. Wówczas $\operatorname{Map}(f,g)(\alpha)=g\circ \alpha \circ f$. Nale¿y pokazaæ, ¿e\\ $g\circ\alpha\circ f\in A_K(X',Y')$, tzn. $\overline{(g\circ\alpha\circ f)}\big(K(X')\big)=0$. Z Lematu \ref{lem8} wynika, ¿e $\overline{g\circ\alpha\circ f}=g\circ\bar{\alpha}\circ\F(f)$. Ponadto $\F(f)\big(K(X')\big)\subset K(X)$ oraz $\bar{\alpha}\big(K(X)\big)=0$, zatem $\overline{(g\circ\alpha\circ f)}\big(K(X')\big)=\big(g\circ\bar{\alpha}\circ\F(f)\big)\big(K(X')\big)=0$.
+Wobec tego $g\circ\alpha\circ f\in$\\$\in A_K(X',Y')$ i $A_K\subset \map$. \cnd
+\begin{lem}\label{lem1}
+Funktor $A_K$ jest reprezentowalny, a jego funktorem reprezentuj¹cym jest $\F/K$.
+\end{lem}
+\dowod Z Twierdzenia \ref{tw1} wynika, ¿e istnieje wzajemnie jednoznaczna odpowiednioœæ pomiêdzy odwzorowaniami z $X$ do $Y$, a homomorfizmami z $\mathcal{F}(X)$ do $Y$ daj¹ca naturalny izomorfizm $\operatorname{Map}(X,Y)\simeq\operatorname{Hom}_R\big(\mathcal{F}(X),Y\big)$. Nastêpnie z Twierdzenia \ref{homomor} wynika, ¿e homomorfizmom z $\mathcal{F}(X)$ do $Y$, które zeruj¹ siê na $K(X)$, odpowiadaj¹ wzajemnie jednoznacznie homomorfizmy z $\mathcal{F}(X)/K(X)$ do $Y$. St¹d otrzymujemy, ¿e $A_K(X,Y)\simeq \operatorname{Hom}_R\big(\mathcal{F}(X)/K(X),Y\big)$.\;\;$\Box$
+\vskip6pt\noindent
+Podamy teraz twierdzenie, które jest szczególnym przypadkiem znacznie ogólniejszego faktu, zwanego w literaturze Lematem Yonedy (zob. np. \cite{7}, Twierdzenie 4.3.2).
+\begin{tw}\label{yoneda}
+Jeœli $\Phi:\Hom(X,\_)\rightarrow\Hom(Y,\_)$ jest przekszta³ceniem funktorów, to istnieje jedyny $R$-homomorfizmu $\varphi:Y\rightarrow X$ taki, ¿e $\Phi(Z)=\varphi^*$ dla dowolnego $Z\in\rmod$, a zatem $\big(\Phi(Z)\big)(f)=f\circ\varphi^*$ dla $f\in\Hom(X,Z)$.
+\end{tw}
+W oparciu o ten fakt udowodnimy
+\begin{tw}\label{tw6}
+Ka¿dy reprezentowalny funktor odwzorowañ $A$ jest postaci $A_K$ dla pewnego podfunktora $K$ funktora $\mathcal{F}$.
+\end{tw}
+\dowod Niech $G$ bêdzie funktorem reprezentuj¹cym $A$. Poniewa¿ funktor $\map$ jest reprezentowany przez $\F$, zatem w³o¿enie $A(X,Y)$ w $\map(X,Y)$ indukuje przekszta³cenie funktorów $\Hom\big(G(X),Y\big)\rightarrow\Hom\big(\F(X),Y\big)$, wobec czego diagram
+$$
+\begindc{0}[3]
+\obj(0,8)[q]{$\Hom\!\big(\!G(X),Y\!\big)$}
+\obj(35,8)[w]{$\Hom\!\big(\!\F(X),Y\!\big)$}
+\obj(0,-8)[a]{$A(X,Y)$}
+\obj(35,-8)[s]{$\map(X,Y)$}
+\mor{q}{w}{$\scriptstyle \varphi^*_X$}
+\mor{a}{s}{$ $}[1,3]
+\mor{q}{a}{$\scriptstyle \simeq$}
+\mor{w}{s}{$\scriptstyle \simeq$}
+\enddc
+$$
+jest przemienny. Przekszta³cenie $\varphi^*_X$ jest monomorfizmem i na mocy Twierdzenia \ref{yoneda} pochodzi od jedynego $R$-homomorfizmu $\varphi_X:\F(X)\rightarrow G(X)$, który jest epimorfizmem na mocy Lematu \ref{lem6}.
+Niech $K(X)=\ker(\varphi_X)$. Z Twierdzenia \ref{homomor} wynika zatem, ¿e $G(X)\simeq\F(X)/K(X)$. Niech $g:G(X)\ra Y$ bêdzie dowolnym $R$-homomorfizmem. Z przemiennoœci powy¿szego diagramu oraz z faktu, ¿e $R$-homomorfizmowi $\bar{\alpha}=\varphi^*_X(g):\F(X)\ra Y$ wzajemnie jednoznacznie odpowiada odwzorowanie $\alpha=\bar{\alpha}\circ i=g\circ \varphi_X\circ i\in\map(X,Y)$ otrzymujemy
+$$A(X,Y)=\big\{\alpha\in\map(X,Y)\;;\;\underset{g\in\Hom(\F(X),Y)}{\exists}\;\;\bar{\alpha}=g\circ \varphi_X\big\}.$$
+Poniewa¿ $(g\circ \varphi_X)\big(K(X)\big)=0$, zatem równie¿ $\bar{\alpha}\big|K(X)=0$, wobec czego
+$$A(X,Y)=\big\{\alpha\in\map(X,Y)\;;\;\bar{\alpha}\big|K(X)=0\big\}=A_K(X,Y).\;\Box$$
+
+\begin{tw}\emph{(\cite{4}, Lemat 3.1.1)}\label{tw3}
+Okreœlone powy¿ej przyporz¹dkowania $\Phi$ oraz $\Psi$ ustalaj¹ wzajemnie jednoznaczn¹ odpowiednioœæ typu Galois (tzn. odwra\-caj¹c¹ zawierania) pomiêdzy reprezentowalnymi funktorami odwzorowañ z $X$ od $Y$, a podfunktorami funktora $\mathcal{F}$. Ponadto $\bar{A}=A_{K_A}$ jest najmniejszym reprezentowalnym funktorem odwzorowañ zawieraj¹cym wyjœciowy funktor $A$, czyli tzw. pow³ok¹ reprezentowaln¹ funktora $A$.
+\end{tw}
+\begin{it}
+dowód:
+\end{it}
+Zauwa¿my na pocz¹tku, ¿e $\Phi$ i $\Psi$ odwracaj¹ zawierania. Istotnie, niech $A$ i $B$ bêd¹ funktorami odwzorowañ takimi, ¿e $A\subset B$. Wówczas, je¿eli \\$u\in K_B(X)$, to dla dowolnego $\beta\in B(X,Y)$ mamy $\bar{\beta}(u)=0$. Poniewa¿ $A\subset B$, zatem równie¿ dla dowolnego $\alpha\in A(X,Y)$ mamy $\bar{\alpha}(u)=0$. St¹d $K_B\subset K_A$, co oznacza, ¿e $\Phi(B)\subset\Phi(A)$.\vskip6pt\noindent Niech teraz $K$ i $L$ bêd¹ podfunktorami funktora $\mathcal{F}$ takimi, ¿e $K\subset L$. Wówczas, je¿eli $\alpha\in A_L(X,Y)$, to $\bar{\alpha}\big(L(X)\big)=0$. Poniewa¿ $K\subset L$, zatem równie¿ $\bar{\alpha}\big(K(X)\big)=0$. St¹d $A_L\subset A_K$, co oznacza, ¿e $\Psi(L)\subset \Psi(K)$.\vskip6pt\noindent
+W dalszej czêœci poka¿emy, ¿e $\Phi\circ\Psi=\id_{\mathscr{K}}$ oraz $\Psi\circ\big(\Phi|\bar{\mathscr{A}}\big)=\id_{\mathscr{\bar{A}}}$, tzn. $K=K_{A_K}$ i $A=A_{K_A}$ dla reprezentowalnego funktora odwzorowañ $A$ oraz podfunktora $K$ funktora $\F$. Mamy
+$$
+\begin{aligned}
+&K_{A_K}(X)=\big\{u\in\mathcal{F}(X)\;;\;\forall_{Y\in\rmod}\;\forall_{\alpha\in A_K(X,Y)}\; \bar{\alpha}(u)=0\big\},\\
+&A_{K_A}(X,Y)=\big\{\alpha\in\map(X,Y)\;;\;\bar{\alpha}\big(K_A(X)\big)=0\big\}.
+\end{aligned}
+$$
+Niech $u\in K(X)$. Wówczas dla dowolnego odwzorowania $\alpha\in A_K(X,Y)$ wprost z okreœlenia $A_K$ otrzymujemy równoœæ $\bar{\alpha}(u)=0$, sk¹d $K\subset K_{A_K}$. Podobnie, je¿eli $\alpha\in A(X,Y)$, to $\bar{\alpha}\big(K_A(X)\big)=0$, zatem $A\subset A_{K_A}$.\vskip6pt\noindent Niech teraz $u\in K_{A_K}(X)$. Rozwa¿my $Y=\F(X)/K(X)$ oraz homomorfizm na\-tu\-ralny $\bar{\alpha}:\F(X)\rightarrow \F(X)/K(X)$, któremu wzajemnie jednoznacznie odpowia\-da odwzorowanie $\alpha=\bar{\alpha}\circ i:X\rightarrow Y$, gdzie $i$ jest w³o¿eniem $X$ w $\F(X)$. Przy tych za³o¿eniach $\bar{\alpha}\big(K(X)\big)=0$, wiêc $\alpha\in A_K(X,Y)$. Wobec tego $\bar{\alpha}(u)=0$, co oznacza, ¿e $u\in K(X)$. Zatem $K_{A_K}\subset K$ i ostatecznie $K=K_{A_K}$. Pokazaliœmy, ¿e $\Phi\circ\Psi=\id_{\mathscr{K}}$.\vskip6pt\noindent
+Poka¿emy teraz, ¿e $\bar{A}=A_{K_A}$ zawiera siê w dowolnym reprezentowalnym funktorze odwzorowañ, zawieraj¹cym wyjœciowy funktor $A$. Niech $B$ bêdzie reprezentowalnym funktorem odwzorowañ, oraz niech $A\subset B$. Z Twierdzenia \ref{tw6} otrzymujemy $B=A_K$ dla pewnego podfunktora $K$ funktora $\F$. Poniewa¿ $A\subset B$ i $K\subset K_{A_K}=K_B$, zatem $K\subset K_B\subset K_A$. St¹d $A_{K_A}\subset A_K=B$. Oznacza to, ¿e ka¿dy reprezentowalny funktor odwzorowañ $B$ zawiera siê w $\bar{A}$. St¹d $\bar{A}$ jest pow³ok¹ reprezentowaln¹ funktora $A$. W szczególnoœci je¿eli $A\in\mathscr{\bar{A}}$, to mo¿emy przyj¹æ $B=A$ i otrzymujemy $A_{K_A}\subset A$. Poniewa¿ $A\subset A_{K_A}$, wiêc $A_{K_A}=A$, tzn. $\Psi\circ\big(\Phi|\bar{\mathscr{A}}\big)=\id_{\mathscr{\bar{A}}}$. \cnd
+
+
+
+
+\section{Warunki typu równoœci i ED-funktory}
+\begin{df}
+Przez warunek typu równoœci bêdziemy rozumieli zwi¹zek postaci
+$$\sum_{j=1}^{n}r_j \alpha\big(\sum_{k=1}^{m}s_{jk}x_k\big)=0,$$
+gdzie $\alpha:X\rightarrow Y$ jest odwzorowaniem pomiêdzy $R$-modu³ami, $r_j,s_{jk}\in R$ oraz $x_k\in X$. Zak³adamy przy tym, ¿e $r_j$ oraz $s_{kj}$ s¹ ustalonymi elementami pierœcienia $R$, natomiast $x_k$ jest dowolnym elementem $R$-modu³u $X$.
+\end{df}
+\begin{df}
+Klasê $\mathscr{E}$ odwzorowañ pomiêdzy $R$-modu³ami nazywamy równoœciowo definiowaln¹, je¿eli sk³ada siê ona z dok³adnie tych odwzorowañ, które spe³niaj¹ pewien zestaw warunków typu równoœci, tzn. takich odwzorowañ \\ $\alpha:X\rightarrow Y$, dla których
+$$\sum_{j}r_{ij} \alpha\big(\sum_{k}s_{ijk}x_k\big)=0,\quad i\in I,$$
+gdzie $j$ przebiega pewien (zale¿ny od $i$) zakres indeksów $\{1,\,\ldots,\,n_i\}$ i analo\-gicznie $k$ przebiega $\{1,\,\ldots,\,m_i\}$.
+\end{df}
+Klasa wszystkich odwzorowañ pomiêdzy $R$-modu³ami jest równoœciowo defi\-niowalna dla pustego uk³adu warunków. Klasa odwzorowañ sta³ych jest równoœciowo definiowalna. Klasa wszystkich $R$-homomorfizmów jest równoœciowo defi\-niowalna, gdy¿ jej elementami s¹ wszystkie odwzorowania $\alpha:X\ra Y$ spe³\-nia\-j¹ce warunki
+\begin{enumerate}
+\item[] $\alpha(x_1+x_2)-\alpha(x_1)-\alpha(x_2)=0$,
+\item[] $\alpha(rx_1)-r\alpha(x_1)=0$.
+\end{enumerate}
+Podobnie klasa wszystkich odwzorowañ kwadratowych jest równoœciowo definiowalna.
+\begin{tw}
+Niech $\mathscr{E}$ bêdzie klas¹ równoœciowo definiowaln¹ oraz niech
+$$A(X,Y)=\big\{\alpha\in\map(X,Y)\;;\;\alpha\in\mathscr{E}\big\}.$$
+Wówczas $A:\rmod\times\rmod\ra\rmod$ jest funktorem odwzorowañ.
+\end{tw}
+\dowod Niech $f_1:X'\rightarrow X$, $f_2:Y\rightarrow Y'$ bêd¹ $R$-homomorfizmami oraz niech $\alpha\in A(X,Y)$. Wówczas $\alpha$ spe³nia zestaw warunków typu równoœci wyznaczony przez klasê $\mathscr{E}$, tzn.
+$$\sum_{j}r_{ij}\alpha\big(\sum_{k}s_{ijk}x_k\big)=0,$$
+gdzie $r_{ij},s_{ijk}\in R$ s¹ ustalone, $x_k\in X$ s¹ dowolne oraz $i\in I$. Nale¿y pokazaæ, ¿e $\map(f_1,f_2)(\alpha)=f_2\circ \alpha \circ f_1\in A(X',Y')$. Niech $i\in I$ oraz $x_k'\in X'$. Wówczas
+$$
+\begin{aligned}
+&\sj r_{ij}(f_2\circ \alpha\circ f_1)\big(\sk s_{ijk}x'_k\big)=\sj r_{ij}f_2\Big(\alpha\big(f_1\big(\sk s_{ijk}x'_k\big)\big)\Big)=\\
+&=\sj r_{ij}f_2\Big(\alpha\big(\sk s_{ijk}f_1(x'_k)\big)\Big)=f_2\Big(\sj r_{ij}\alpha\big(\sk s_{ijk}f_1(x'_k)\big)\Big)=f_2(0)=0,
+\end{aligned}
+$$
+co oznacza, ¿e $f_2\circ \alpha\circ f_1\in A(X',Y')$. Wobec tego $A\subset\map$.\cnd\vskip6pt\noindent
+Funktor $A$ okreœlony w powy¿szym twierdzeniu nazywamy funktorem równoœciowo definiowalnym wyznaczonym przez klasê $\mathscr{E}$, lub krótko ED-funktorem.\vskip6pt\noindent
+Funktory $\map$, $\Hom$ oraz funktor $\Hom^2$ okreœlony w Przyk³adzie \ref{ex2} s¹ przyk³a\-dami funtorów równoœciowo definiowalnych.
+\begin{tw}
+Ka¿dy $\operatorname{ED}$-funktor $A$ jest reprezentowalny. Dok³adniej, jeœli $A$ jest funktorem równoœciowo definiowalnym zadanym przez uk³ad równoœci
+$$\sum_{j}r_{ij} \alpha\big(\sum_{k}s_{ijk}x_k\big)=0,\quad i\in I,$$
+to $A=A_K$, gdzie
+$$K(X)=R\Big\{\sj r_{ij}\big[\sk s_{ijk}x_k\big]\;;\; i\in I, x_k\in X\Big\}.$$
+\end{tw}
+\dowod
+Rozwa¿my $\alpha\in A(X,Y)$. Wówczas
+$$
+\begin{aligned}
+\bar{\alpha}\big(\sj r_{ij}\big[\sk s_{ijk}x_k\big]\big)=\sum_{j}r_{ij} \alpha\big(\sum_{k}s_{ijk}x_k\big)=0,
+\end{aligned}
+$$
+sk¹d wynika, ¿e $A\subset A_K$. Niech teraz $\alpha\in A_K(X,Y)$. Wówczas
+$$
+\begin{aligned}
+\sj r_{ij}\alpha\big(\sk s_{ijk}x_k\big)&=\sj r_{ij}\bar{\alpha}\big(\big[\sk s_{ijk}x_k\big]\big)=\\
+&=\bar{\alpha}\Big(\sj r_{ij}\big[\sk s_{ijk}x_k\big]\Big)\in\bar{\alpha}\big(K(X)\big)=0,
+\end{aligned}
+$$
+zatem $\alpha\in A(X,Y)$, sk¹d $A\supset A_K$ i ostatecznie $A=A_K$. Pokazaliœmy zatem, ¿e dowolny ED-funktor $A$ jest postaci $A_K$, wobec czego $A$ jest reprezentowalny na podstawie Lematu \ref{lem1}.\cnd
+\section{Charakteryzacja funktorów równoœciowo defi\-niowalnych}
+Celem tego paragafu jest udowodnienie nastêpuj¹cego twierdzenia, które jest g³ównym wynikiem tej pracy:
+\begin{tw}\emph{(\cite{4}, Twierdzenie 3.1.2)}\label{tw4}
+Niech $A$ bêdzie funktorem odwzorowañ. Wówczas nastêpuj¹ce warunki s¹ równowa¿ne:
+\begin{enumerate}
+\item $A$ jest równoœciowo definiowalny,
+\item $A$ jest reprezentowany przez funktor zachowuj¹cy ci¹gi Grothendiecka pierwszego rodzaju i granice proste,
+\item $A=A_K$, gdzie $K$ jest funktorem zachowuj¹cym granice proste i epimorfizmy.
+\end{enumerate}
+Jeœli powy¿sze warunki s¹ spe³nione, to $A$ jest wyznaczony jednoznacznie przez wartoœæ funktora $K$ na $R$-module wolnym $R^{\infty}$ o bazie przeliczalnej.
+\end{tw}
+\dowod (1 $\Rightarrow$ 2) Poniewa¿ ka¿dy funktor równoœciowo definiowalny jest postaci $A_K$, zatem na mocy Lematu \ref{lem1} mamy izomorfizm funktorów
+$$A(X,Y)=A_K(X,Y)\simeq\Hom\big(\mathcal{F}(X)/K(X),Y\big),$$
+a wiêc $A$ jest reprezentowany przez funktor $\F/K$. Poka¿emy, ¿e
+\begin{enumerate}
+\item[(i)] funktor $\mathcal{F}/K$ zachowuje ci¹gi Grothendiecka pierwszego rodzaju,
+\item[(ii)] funktor $\mathcal{F}/K$ zachowuje granice proste.
+\end{enumerate}
+(i) Niech ci¹g
+\begin{equation}\label{groth7}
+\begindc{0}[3]
+\obj(14,1){$X$}
+\obj(30,1){$Y$}
+\obj(44,1){$Z$}
+\mor(14,2)(30,2){$\scriptstyle f_1$}
+\mor(14,0)(30,0){$\scriptstyle f_2$}[-1,0]
+\mor(30,1)(44,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+bêdzie ci¹giem Grothendiecka pierwszego rodzaju. Nale¿y pokazaæ, ¿e ci¹g
+\begin{equation}\label{groth8}
+\begindc{0}[3]
+\obj(8,1)[X]{$(\mathcal{F}/K)(X)$}
+\obj(40,1)[Y]{$(\mathcal{F}/K)(Y)$}
+\obj(72,1)[Z]{$(\mathcal{F}/K)(Z)$}
+\mor(15,2)(34,2){$\scriptstyle (\mathcal{F}/K)(f_1)$}
+\mor(15,0)(34,0){$\scriptstyle (\mathcal{F}/K)(f_2)$}[-1,0]
+\mor{Y}{Z}{$\scriptstyle (\mathcal{F}/K)(g)$}
+\enddc
+\end{equation}
+jest równie¿ ci¹giem Grothendiecka pierwszego rodzaju. Niech $y\in(\F/K)(Y)$, $y=\overset{n}{\underset{i=1}{\sum}} r_i[y_i] + K(Y)$. Z za³o¿enia ci¹g (\ref{groth7}) jest ci¹giem Grothendiecka pierwszego rodzaju, wobec czego z Twierdzenia \ref{tw7} wynika, ¿e dla dowolnego $y_i$ istnieje $x_i\in X$ taki, ¿e $y_i=f_1(x_i)=f_2(x_i)$. Zatem
+$$
+\begin{aligned}
+y=\sum^n_{i=1} r_i[f_1(x_i)] + K(Y)&=(\F/K)(f_1)\big(\sum^n_{i=1} r_i[x_i]+K(X)\big),\\
+y=\sum^n_{i=1} r_i[f_2(x_i)] + K(Y)&=(\F/K)(f_2)\big(\sum^n_{i=1} r_i[x_i]+K(X)\big).
+\end{aligned}
+$$
+Poniewa¿ $g$ jest epimorfizmem, zatem dla dowolnego $z\in Z$ istnieje $y\in Y$ taki, ¿e $z=g(y)$. Analogicznie jak we Wniosku \ref{wn3} mo¿emy zatem rozwa¿aæ odwzorowanie $\psi: Z\rightarrow N$ okreœlone wzorem $\psi(z)=\varphi(y)$, dla $z=g(y)$, $\varphi\in A(Y,N)$. We Wniosku \ref{wn3} pokazaliœmy, ¿e takie odwzorowanie jest poprawnie okreœlone i uzupe³nia diagram
+\begin{equation}
+\begindc{0}[3]
+\obj(14,8)[X]{$X$}
+\obj(30,8)[Y]{$Y$}
+\obj(44,8)[Z]{$Z$}
+\obj(30,-8)[N]{$N$}
+\mor(14,9)(30,9){$\scriptstyle f_1$}
+\mor(14,7)(30,7){$\scriptstyle f_2$}[-1,0]
+\mor{Y}{Z}{$\scriptstyle g$}
+\mor{X}{N}{}
+\mor{Y}{N}{$\scriptstyle \varphi$}
+\mor{Z}{N}{$\scriptstyle \psi$}[1,1]
+\enddc
+\end{equation}
+do diagramu przemiennego. Ponadto, je¿eli $\varphi$ spe³nia równoœci definiuj¹ce $A$, tzn., powiedzmy równoœci
+$$\sum_j r_j\varphi\big(\sum_{k}s_{jk}y_k\big)=0,\quad i\in I,$$
+dla dowolnych $y_k\in Y$, to $\psi$ spe³nia te same warunki co $\varphi$. Istotnie, mamy
+$$
+\begin{aligned}
+&\sum_{j}r_j\psi\big(\sum_{k}s_{jk}z_k\big)=\sum_{j}r_j\psi\big(\sum_{k}s_{jk}g(y_k)\big)=\\
+&=\sum_{j}r_j\psi\Big(g\big(\sum_{k}s_{jk}y_k\big)\Big)=\sum_{j}r_j\varphi\big(\sum_{k}s_{jk}y_k\big)=0,
+\end{aligned}
+$$
+dla dowolnych $z_k\in Z$ gdzie $z_k=g(y_k)$, $y_k\in Y$, i dla dowolnego $i\in I$. Zatem $\psi\in A(Z,N)$. Wobec tego, na podstawie Lematu \ref{lem12}, ci¹g
+\begin{equation}
+\begindc{0}[3]
+\obj(10,1)[X]{$A(Z,N)$}
+\obj(35,1)[Y]{$A(Y,N)$}
+\obj(61,1)[Z]{$A(X,N).$}
+\mor{X}{Y}{$\scriptstyle g^*$}
+\mor(40,2)(55,2){$\scriptstyle f_1^*$}
+\mor(40,0)(55,0){$\scriptstyle f_2^*$}[-1,0]
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka drugiego rodzaju. Zatem równie¿
+$$
+\begindc{0}[3]
+\obj(0,0)[X]{$\Hom\!\Big(\!\big(\F\!/\!K\big)(Z),N\!\Big)$}
+\obj(48,0)[Y]{$\Hom\!\Big(\!\big(\F\!/\!K\big)(Y),N\!\Big)$}
+\obj(96,0)[Z]{$\Hom\!\Big(\!\big(\F\!/\!K\big)(X),N\!\Big).$}
+\mor{X}{Y}{$\scriptstyle g^*$}
+\mor(64,1)(79,1){$\scriptstyle f_1^*$}
+\mor(64,-1)(79,-1){$\scriptstyle f_2^*$}[-1,0]
+\enddc
+$$
+jest ci¹giem Grothendiecka drugiego rodzaju. Bior¹c tak¿e pod uwagê pierwsz¹ czêœæ dowodu, na podstawie Twierdzenia \ref{wn1a} stwierdzamy, ¿e (\ref{groth8}) jest ci¹giem Grothendiecka pierwszego rodzaju. St¹d funktor $\F/K$ zachowuje ci¹gi Grothen\-diecka pierwszego rodzaju.\vskip6pt\noindent
+(ii) Poka¿emy, ¿e funktor $\F/K$ zachowuje granice proste. \\
+Niech $\{X_\alpha,f^\alpha_\beta\}$ bêdzie prostym systemem $R$-modu³ów nad zbiorem skierowanym $S$ oraz niech $R$-modu³ $X$ bêdzie granic¹ tego systemu. Poka¿emy, ¿e $\F(X)/K(X)$ wraz z $R$-homomorfizmami $(\F/K)(f^\alpha)$ jest granic¹ systemu \\$\big\{\F(X_\alpha)/K(X_\alpha),(\F/K)(f^\alpha)\big\}$. Poniewa¿ $\F/K$ jest funktorem, zatem dla dowolnego $\alpha\in S$, z przemiennoœci diagramów
+\begin{equation}\label{diag8}
+\begindc{0}[3]
+\obj(1,9)[1]{$X_\alpha$}
+\obj(18,9)[2]{$X_\beta$}
+\obj(18,-8)[3]{$X$}
+\mor{1}{2}{$\scriptstyle f^\alpha_\beta$}
+\mor{2}{3}{$\scriptstyle f^\beta$}
+\mor{1}{3}{$\scriptstyle f^\alpha$}
+\enddc
+\end{equation}
+wynika, ¿e diagramy
+$$
+\begindc{0}[3]
+\obj(0,25)[1]{$\F(X_\alpha)/K(X_\alpha)$}
+\obj(40,25)[2]{$\F(X_\beta)/K(X_\beta)$}
+\obj(40,0)[3]{$\F(X)/K(X)$}
+\mor{1}{2}{$\scriptstyle (\F/K)(f^\alpha_\beta)$}
+\mor{2}{3}{$\scriptstyle (\F/K)(f^\beta)$}
+\mor(0,23)(40,2){$\scriptstyle (\F/K)(f^\alpha)$}
+\enddc
+$$
+s¹ równie¿ przemienne. Niech $Y$ bêdzie dowolnym $R$-modu³em oraz niech dla dowolnego $\alpha\in S$ okreœlone bêd¹ $R$-homomorfizmy $g_\alpha:\F(X_\alpha)/K(X_\alpha)\rightarrow Y$ takie, ¿e diagramy
+$$
+\begindc{0}[3]
+\obj(0,25)[1]{$\F(X_\alpha)/K(X_\alpha)$}
+\obj(40,25)[2]{$\F(X_\beta)/K(X_\beta)$}
+\obj(40,0)[3]{$Y$}
+\mor{1}{2}{$\scriptstyle (\F/K)(f^\alpha_\beta)$}
+\mor{2}{3}{$\scriptstyle g^\beta$}
+\mor(0,23)(40,2){$\scriptstyle g^\alpha$}
+\enddc
+$$
+s¹ przemienne dla wszystkich $\alpha\leq\beta$. \\Nale¿y okreœliæ $R$-homomorfizm $g:\F(X)/K(X)\rightarrow Y$ w taki sposób, aby uzupe³nia³ diagram
+\begin{equation}
+\begindc{0}[3]\label{diag14}
+\obj(0,20)[1]{$\F(X_\alpha)/K(X_\alpha)$}
+\obj(40,20)[2]{$\F(X_\beta)/K(X_\beta)$}
+\obj(20,-10)[3]{$Y$}
+\obj(20,5)[4]{$\F(X)/K(X)$}
+\mor{1}{2}{$\scriptstyle (\!\F\!/\!K\!)\!(\!f^\alpha_\beta\!)$}
+\mor(0,18)(20,7){$\scriptstyle (\!\F\!/\!K\!)\!(\!f^\alpha\!)$}
+\mor(38,18)(20,7){$\scriptstyle (\!\F\!/\!K\!)\!(\!f^\beta\!)$}
+\cmor((0,16)(4,-2)(18,-10))
+\pright(6,0){$\scriptstyle g^\alpha$}
+\cmor((41,16)(36,-2)(22,-10))
+\pleft(40,0){$\scriptstyle g^\beta$}
+\enddc
+\end{equation}
+do diagramu przemiennego
+\begin{equation}
+\begindc{0}[3]\label{diag15}
+\obj(0,20)[1]{$\F(X_\alpha)/K(X_\alpha)$}
+\obj(40,20)[2]{$\F(X_\beta)/K(X_\beta)$}
+\obj(20,-10)[3]{$Y$}
+\obj(20,5)[4]{$\F(X)/K(X)$}
+\mor{1}{2}{$\scriptstyle (\!\F\!/\!K\!)\!(\!f^\alpha_\beta\!)$}
+\mor(0,18)(20,7){$\scriptstyle (\!\F\!/\!K\!)\!(\!f^\alpha\!)$}
+\mor(38,18)(20,7){$\scriptstyle (\!\F\!/\!K\!)\!(\!f^\beta\!)$}
+\mor{4}{3}{$\scriptstyle g$}[1,1]
+\cmor((0,16)(4,-2)(18,-10))
+\pright(6,0){$\scriptstyle g^\alpha$}
+\cmor((41,16)(36,-2)(22,-10))
+\pleft(40,0){$\scriptstyle g^\beta$}
+\enddc
+\end{equation}
+Zauwa¿my, ¿e je¿eli $x\in X$, to $x=f^\alpha(x_\alpha)$ dla pewnego $x_{\alpha}\in X_\alpha$. Rozwa¿my zatem homomorfizm $g':\F(X)\rightarrow Y$ okreœlony na bazie wzorem
+$$g'\big([x]\big)=g^\alpha\big([x_\alpha]+K(X_\alpha)\big).$$
+Z okreœlenia wynika, ¿e $g'$ jest wyznaczony jednoznacznie. Analogicznie jak w Twierdzeniu \ref{tw8} mo¿emy sprawdziæ, ¿e homomorfizm $g'$ jest poprawnie okreœlony.
+Zauwa¿my ponadto, ¿e je¿eli $x_1=f^{\alpha_1}(X_{\alpha_1,1}),\,\ldots,\,x_n=f^{\alpha_n}(X_{\alpha_n,n})$, to istnieje $\alpha\in S$ takie, ¿e $\alpha_1,\,\ldots,\,\alpha_n\leq\alpha$, wobec czego $x_i=f^\alpha\big(f^{\alpha_i}_\alpha(x_{\alpha_i,i})\big)$ dla $i=1,\,\ldots,\,n$. Po³ó¿my $x_i=f^{\alpha_i}_\alpha(x_{\alpha_i,i})$. Wówczas $\underset{k}{\sum}s_{ijk}x_k=f^\alpha\big(\underset{k}{\sum}s_{ijk}x_{\alpha k}\big)$. Zauwa¿my teraz, ¿e $g'\big(K(X)\big)=0$. Istotnie, mamy
+$$g'\Big(\big[\sk s_{ijk}x_k\big]\Big)=g^\alpha\Big(\big[\sk s_{ijk}x_{\alpha k}\big]+K(X_\alpha)\Big)=g^\alpha(0)=0.$$ Zatem z Twierdzenia \ref{homomor} wynika, ¿e istnieje dok³adnie jeden $R$-homomorfizm $g:\F(X)/K(X)\rightarrow Y$ taki, ¿e $g\big(x+K(X)\big)=g'(x)$ dla $x\in \F(X)$. Ponadto $g$ uzupe³nia diagram (\ref{diag14}) do diagramu przemiennego (\ref{diag15}), co oznacza, ¿e $\F(X)/K(X)=\Lim\F(X_\alpha)/K(X_\alpha)$. Zatem $\F/K$ zachowuje granice proste.
+
+\vskip6pt\noindent
+$(\textit{2}\Rightarrow \textit{3})$: Niech $A=A_K$ bêdzie funktorem odwzorowañ reprezentowanym przez funktor $\F/K$ zachowuj¹cy ci¹gi Grothendiecka pierwszego rodzaju oraz granice proste. Poka¿emy, ¿e
+\begin{enumerate}
+\item[(i)] $K$ zachowuje granice proste,
+\item[(ii)] $K$ zachowuje epimorfizmy.
+\end{enumerate}
+(i) Niech $\{X_\alpha, f^\alpha_\beta\}$ bêdzie prostym systemem $R$-modu³ów nad zbiorem skiero\-wanym $S$. Niech $R$-modu³ $X$ wraz z $R$-homomorfizmami $f^\alpha:X_\alpha\ra X$ bêdzie granic¹ prost¹ tego systemu. Poniewa¿ $K$, $\F$ oraz $\F/K$ s¹ funktorami, zatem $\{K(X_\alpha),K(f^\alpha_\beta)\}$, $\{\F(X_\alpha),\F(f^\alpha_\beta)\}$ oraz $\{\F(X_\alpha)/K(X_\alpha),(\F/K)(f^\alpha_\beta)\}$ s¹ systemami prostymi.
+Dla ka¿dego $\alpha\in S$ niech $\nu_\alpha:\F(X_\alpha)\ra\F(X_\alpha)/K(X_\alpha)$ bêd¹ homomorfizmami naturalnymi. Podobnie niech $\nu:\F(X)\ra\F(X)/K(X)$ bêdzie homomorfizmem naturalnym. Wobec tego, z definicji $(\F/K)(f^\alpha)$ wynika, ¿e diagram
+\begin{equation}
+\begindc{0}[3]
+\obj(-10,9)[q]{$\F(X_\alpha)$}
+\obj(18,9)[w]{$\F(X_\alpha)/K(X_\alpha)$}
+\obj(18,-8)[s]{$\F(X)/K(X)$}
+\obj(-10,-8)[a]{$\F(X)$}
+\mor{q}{w}{$\scriptstyle \nu_\alpha$}
+\mor{a}{s}{$\scriptstyle \nu$}
+\mor{q}{a}{$\scriptstyle \F(f^\alpha)$}
+\mor{w}{s}{$\scriptstyle (\F/K)(f^\alpha)$}
+\enddc
+\end{equation}
+jest przemienny dla ka¿dego $\alpha\in S$. Poniewa¿ funktory $\F$ i $\F/K$ zachowuj¹ granice proste z za³o¿enia, tzn.
+$\F(X)$ wraz z $R$-homomorfizmami $\F(f^\alpha)$ jest granic¹ systemu $\big\{\F(X_\alpha),\F(f^\alpha)\big\}$ oraz $\F(X)/K(X)$ wraz z $R$-homomorfizmami $(\F/K)(f^\alpha)$ jest granic¹ systemu $\big\{\F(X_\alpha)/K(X_\alpha),(\F/K)(f^\alpha)\big\}$, wiêc porównuj¹c powy¿szy diagram z diagramem (\ref{diag18}) ze strony 33 widzimy, ¿e $\nu=\Lim \nu_\alpha$. Ponadto z Twierdzenia \ref{tw10} wynika, ¿e
+$$\ker\big(\Lim \nu_\alpha\big)=\bigcup_\alpha \F(f^\alpha)\big(\ker (\nu_\alpha)\big).$$
+Wobec tego
+$$
+\begin{aligned}
+K(X)&=\ker(\nu)=\ker\big(\Lim \nu_\alpha\big)=\bigcup_\alpha \F(f^\alpha)\big(\ker (\nu_\alpha)\big)=\\
+&=\bigcup_\alpha \F(f^\alpha)\big(K(X_\alpha)\big)=\bigcup_\alpha K(f^\alpha)\big(K(X_\alpha)\big)= \bigcup_\alpha \operatorname{im}\big(K(f^\alpha)\big).
+\end{aligned}
+$$
+Pozostaje pokazaæ, ¿e $K(X)=\underset{\alpha}{\bigcup} \operatorname{im}\big(K(f^\alpha)\big)$ wraz z $R$-homomorfizmami $K(f^\alpha)$ jest granic¹ prost¹ systemu $\{K(X_\alpha),K(f^\alpha)\}$. Niech $Y$ bêdzie dowolnym $R$-mo\-du³em. Nale¿y okreœliæ $R$-homomorfizm $g:K(X)\ra Y$ tak, aby diagram
+\begin{equation}
+\begindc{0}[3]\label{diag17}
+\obj(0,20)[1]{$K(X_\alpha)$}
+\obj(40,20)[2]{$K(X_\beta)$}
+\obj(20,-10)[3]{$Y$}
+\obj(20,5)[4]{$K(X)$}
+\mor{1}{2}{$\scriptstyle K(\!f^\alpha_\beta\!)$}
+\mor(0,18)(20,7){$\scriptstyle K(\!f^\alpha\!)$}
+\mor(38,18)(20,7){$\scriptstyle K(\!f^\beta\!)$}
+\mor{4}{3}{$\scriptstyle g$}[1,1]
+\cmor((0,16)(4,-2)(18,-10))
+\pright(6,0){$\scriptstyle g^\alpha$}
+\cmor((41,16)(36,-2)(22,-10))
+\pleft(40,0){$\scriptstyle g^\beta$}
+\enddc
+\end{equation}
+by³ przemienny. Zauwa¿my, ¿e dla dowolnego $z\in K(X)$ istnieje element \\$u\in K(X_\alpha)$ taki, ¿e $z=K(f^\alpha)(u)$ dla pewnego $\alpha\in S$. Poniewa¿ $g$ ma uzupe³niaæ powy¿szy diagram, zatem musi byæ okreœlone wzorem $g(z)=g^\alpha(u)$. St¹d w szczególnoœci $g$ jest co najwy¿ej jedno. Odwzorowanie $g$ jest poprawnie okreœlone. Istotnie, niech $z=K(f^\alpha)(u)$ i $z=K(f^\beta)(t)$. Wówczas $z=\F(f^\alpha)(u)=$\\$=\F(f^\beta)(t)$, gdy¿ $K$ jest podfunktorem funktora $\F$. Zbiór $S$ jest skierowany, zatem istnieje $\gamma\in S$ takie, ¿e $\alpha,\beta\leq\gamma$. Wobec tego
+$$z=\F(f^\gamma)\big(\F(f^\alpha_\gamma)(u)\big)=\F(f^\gamma)\big(\F(f^\beta_\gamma)(t)\big).$$
+Zatem $\F(f^\alpha_\gamma)(u)-\F(f^\beta_\gamma)(t)\in\ker\big(\F(f^\gamma)\big)$. Funktor $\F$ zachowuje granice proste, zatem istnieje $\delta\in S$ takie, ¿e $\gamma\leq\delta$ i
+$$\F(f^\gamma_\delta)\big(\F(f^\alpha_\gamma)(u)-\F(f^\beta_\gamma)(t)\big)=0.$$
+St¹d $\F(f^\alpha_\delta)(u)=\F(f^\beta_\delta)(t)$ i
+$$g^\alpha(u)=g^\delta\big(\F(f^\alpha_\delta)(u)\big)=g^\delta\big(\F(f^\beta_\delta)(t)\big)=g^\beta(t),$$
+co oznacza, ¿e $g$ jest poprawnie okreœlone. Zauwa¿my, ¿e $g$ jest $R$-homomorfiz\-mem, bo jeœli $z_1,z_2\in K(X)$, $z_1=K(f^\alpha)(u_1)$, $z_2=K(f^\beta)(u_2)$, to dla $\gamma\geq \alpha,\beta$ mamy $z_1=K(f^\gamma)(v_1)$, $z_2=K(f^\gamma)(v_2)$, sk¹d $z_1+z_2=K(f^\gamma)(v_1+v_2)$, $rz_1=$\\$=K(f^\gamma)(rv_1)$. Zatem
+$$g(z_1+z_2)=g^\gamma(v_1+v_2)=g^\gamma(v_1)+g^\gamma(v_2)=g(z_1)+g(z_2)$$
+i analogicznie
+$$g(rz_1)=g^\gamma(rv_1)=rg^\gamma(v_1)=rg(z_1).$$
+Zatem $K(X)=\Lim K(X_\alpha)$, a wiêc funktor $K$ zachowuje granice proste. \vskip6pt\noindent
+(ii) Niech $g:Y\rightarrow Z$ bêdzie epimorfizmem oraz niech $i$ bêdzie w³o¿eniem $\ker(g)$ w $Y$. Wówczas, na podstawie Lematu \ref{lem10} ci¹g
+\begin{equation}\label{groth10}
+\begindc{0}[3]
+\obj(17,1){$\text{ker}(g)\oplus Y$}
+\obj(45,1){$Y$}
+\obj(60,1){$Z$}
+\mor(24,2)(44,2){$\scriptstyle (i,\id_Y)$}
+\mor(24,0)(44,0){$\scriptstyle (0,\id_Y)$}[-1,0]
+\mor(45,1)(60,1){$\scriptstyle g$}
+\enddc
+\end{equation}
+jest ci¹giem Grothendiecka pierwszego rodzaju. Oznaczmy $f_1=(i,\id_Y)$, $f_2=$\\$=(0,\id_Y)$ oraz $X=\ker(g)\oplus Y$. Poniewa¿ $\map$ jest ED-funktorem, zatem $\F$ \big(na podstawie implikacji (1$\Rightarrow\!\!2$)\big) zachowuje ci¹gi Grothendiecka pierwszego rodzaju, sk¹d ci¹g
+$$
+\begindc{0}[3]
+\obj(18,10)[w]{$\F(X)$}
+\obj(46,10)[e]{$\F(Y)$}
+\obj(68,10)[r]{$\F(Z)$}
+\obj(87,10)[t]{$0$}
+\mor{w}{e}{$\scriptstyle \F(f_1)-\F(f_2)$}
+\mor{e}{r}{$\scriptstyle \F(g)$}
+\mor{r}{t}{}
+\enddc
+$$
+jest dok³adny na mocy Twierdzenia \ref{tw7}.
+Z za³o¿enia funktor $\F/K$ zachowuje ci¹gi Grothendiecka pierwszego rodzaju, zatem równie¿ ci¹g
+$$
+\begindc{0}[3]
+\obj(0,10)[w]{$\F(X)/K(X)$}
+\obj(50,10)[e]{$\F(Y)/K(Y)$}
+\obj(85,10)[r]{$\F(Z)/K(Z)$}
+\obj(110,10)[t]{$0$}
+\mor{w}{e}{$\scriptstyle (\F/K)(f_1)-(\F/K)(f_2)$}
+\mor{e}{r}{$\scriptstyle (\F/K)(g)$}
+\mor{r}{t}{}
+\enddc
+$$
+jest dok³adny. Oznaczaj¹c $f'=\F(f_1)-\F(f_2)$ oraz $f''=(\F/K)(f_1)-(\F/K)(f_2)$ otrzymujemy, ¿e diagram o dok³adnych wierszach i kolumnach
+\begin{equation}\label{diag3}
+\begindc{0}[3]
+\obj(45,36)[2]{$0$}
+\obj(80,36)[3]{$0$}
+\obj(45,21)[w]{$K(Y)$}
+\obj(80,21)[e]{$K(Z)$}
+\obj(8,1)[a]{$\F(X)$}
+\obj(45,1)[s]{$\F(Y)$}
+\obj(80,1)[d]{$\F(Z)$}
+\obj(8,-19)[z]{$\F(X)/K(X)$}
+\obj(45,-19)[x]{$\F(Y)/K(Y)$}
+\obj(80,-19)[c]{$\F(Z)/K(Z)$}
+\obj(8,-34)[v]{$0$}
+\obj(45,-34)[b]{$0$}
+\obj(80,-34)[n]{$0$}
+\obj(100,1)[f]{$0$}
+\obj(100,-19)[g]{$0$}
+\mor{d}{f}{}
+\mor{c}{g}{}
+\mor{z}{v}{}
+\mor{x}{b}{}
+\mor{c}{n}{}
+\mor{2}{w}{}
+\mor{3}{e}{}
+\mor{w}{e}{$\scriptstyle K(g)$}
+\mor{s}{d}{$\scriptstyle \F(g)$}
+\mor{x}{c}{$\scriptstyle (\F\!/\!K)(g)$}
+\mor{z}{x}{$\scriptstyle f''$}
+\mor{a}{s}{$\scriptstyle f'$}
+\mor{w}{s}{$\scriptstyle i_Y$}
+\mor{e}{d}{$\scriptstyle i_Z$}
+\mor{a}{z}{$\scriptstyle \nu_X$}
+\mor{s}{x}{$\scriptstyle \nu_Y$}
+\mor{d}{c}{$\scriptstyle \nu_Z$}
+\enddc
+\end{equation}
+jest przemienny, gdzie $i_Y$, $i_Z$ s¹ w³o¿eniami, natomiast $\nu_X,\nu_Y,\nu_Z$ s¹ homomorfizmami naturalnymi. Poka¿emy, ¿e $K(g)$ jest epimorfizmem. Niech $z\in K(Z)$. Poniewa¿ $\F(g)$ jest epimorfizmem, zatem istnieje $y'\in\F(Y)$ taki, ¿e $\F(g)(y')=$\\$=i_Z(z)$.
+Diagram (\ref{diag3}) jest przemienny, sk¹d, w szczególnoœci, kwadrat
+$$
+\begindc{0}[3]
+\obj(45,1)[s]{$\F(Y)$}
+\obj(80,1)[d]{$\F(Z)$}
+\obj(45,-19)[x]{$\F(Y)/K(Y)$}
+\obj(80,-19)[c]{$\F(Z)/K(Z)$}
+\mor{s}{d}{$\scriptstyle \F(g)$}
+\mor{x}{c}{$\scriptstyle (\F\!/\!K)(g)$}
+\mor{s}{x}{$\scriptstyle \nu_Y$}
+\mor{d}{c}{$\scriptstyle \nu_Z$}
+\enddc
+$$
+jest przemienny, tzn. $\nu_Z\circ \F(g)=(\F/K)(g)\circ\nu_Y$. Ponadto $\nu_Z\big(i_Z(z)\big)=0$, wobec czego $0=\nu_Z\big(\F(g)(y')\big)=(\F/K)(g)\big(\nu_Y(y')\big)$. Z dok³adnoœci trzeciego wiersza wynika, ¿e istnieje $\bar{x}'\in\F(X)/K(X)$ taki, ¿e $f''(\bar{x}')=\nu_Y(y')$. Poniewa¿ $\nu_X$ jest epimorfizmem, zatem $\bar{x}'=\nu_X(x')$ dla pewnego $x'\in \F(X)$. Powy¿sze zale¿noœci ilustruje diagram
+$$
+\begindc{0}[3]
+\obj(0,0)[a]{$x'$}
+\obj(0,-15)[z]{$\bar{x}'$}
+\obj(20,-15)[x]{$\nu_Y(y')$}
+\obj(12,0)[s]{$f'\!(\!x'\!)$}
+\obj(20,0)[s']{$y'$}
+\obj(40,0)[d]{$i_Z(z)$}
+\obj(40,-15)[c]{$0$}
+\obj(40,15)[e]{$z$}
+\mor{a}{z}{$ $}[1,4]
+\mor{z}{x}{$ $}[1,4]
+\mor(12,-1)(19,-15){$ $}[1,4]
+\mor{s'}{x}{$ $}[1,4]
+\mor{a}{s}{$ $}[1,4]
+\mor{s'}{d}{$ $}[1,4]
+\mor{x}{c}{$ $}[1,4]
+\mor{e}{d}{$ $}[1,4]
+\mor{d}{c}{$ $}[1,4]
+\enddc
+$$
+Z przemiennoœci diagramu
+$$
+\begindc{0}[3]
+\obj(45,1)[s]{$\F(X)$}
+\obj(80,1)[d]{$\F(Y)$}
+\obj(45,-19)[x]{$\F(X)/K(X)$}
+\obj(80,-19)[c]{$\F(Y)/K(Y)$}
+\mor{s}{d}{$\scriptstyle f'$}
+\mor{x}{c}{$\scriptstyle f''$}
+\mor{s}{x}{$\scriptstyle \nu_X$}
+\mor{d}{c}{$\scriptstyle \nu_Y$}
+\enddc
+$$
+wynika wiêc, ¿e $\nu_Y\big(f'(x')\big)=\nu_Y(y')$, sk¹d $\nu\big(y'-f'(x')\big)=0$. Zatem istnieje $y\in K(Y)$ taki, ¿e $i_Y(y)=y'-f'(x')$, jak w poni¿szym diagramie:
+$$
+\begindc{0}[3]
+\obj(0,0)[a]{$y'\!-\!f'(x')$}
+\obj(20,0)[s]{$i_Z(z)$}
+\obj(0,-15)[z]{$0$}
+\obj(0,15)[q]{$y$}
+\obj(20,15)[w]{$z$}
+\mor{a}{s}{$ $}[1,4]
+\mor{q}{w}{$ $}[1,1]
+\mor{q}{a}{$ $}[1,4]
+\mor{w}{s}{$ $}[1,4]
+\mor{a}{z}{$ $}[1,4]
+\enddc
+$$
+Zauwa¿my, ¿e, jak zaznaczono powy¿ej, $\F(g)\big(y'-f'(x')\big)=\F(g)(y')=i_Z(z)$, gdy¿ $f'(x')\in\operatorname{im}(f')=\ker\big(\F(g)\big)$. Pozostaje zauwa¿yæ, ¿e $K(g)(y)=z$. Istotnie, $$i_z\big(K(g)(y)\big)=\F(g)\big(i_Y(y)\big)=\F(g)\big(y'-f'(x')\big)=i_Z(z),$$
+sk¹d $K(g)(y)=z$, gdy¿ $i_Z$ jest monomorfizmem. St¹d $K(g)$ jest epimorfizmem.\vskip6pt\noindent
+($\emph{3}\Rightarrow\!\emph{1}$): Niech $A=A_K$ oraz niech funktor $K$ zachowuje granice proste i epimorfizmy.
+Wybierzmy pewien zbiór generatorów podmodu³u $K(R^\infty)\subset$\\$\subset\F(R^\infty)$, gdzie $R^\infty$ jest $R$-modu³em wolnym o przeliczalnej bazie $\{e_1,e_2,\ldots\}$, a wiêc przyjmijmy, ¿e $K(R^\infty)=R\big\{\underset{j}{\sum} r_{ij}\big[\underset{k}{\sum} s_{ijk}e_k\big]\;;\;i\in I\big\}$ dla ustalonych $r_{ij},s_{ijk}\in R$. Dla dowolnego $X\in\rmod$ oraz $x_1,x_2,\,\ldots\in X$ rozwa¿my \\$R$-mo\-du³ $R\big\{x_1,x_2,\ldots\big\}$ oraz epimorfizm $\varphi:R^\infty\rightarrow R\big\{x_1,x_2,\ldots\big\}$ zadany na bazie wzorem $\varphi(e_k)=x_k$. Poniewa¿ funktor $K$ zachowuje epimorfizmy, zatem $K(\varphi):K(R^\infty)\rightarrow K\big(R\{x_1,x_2\ldots\}\big)$ jest równie¿ epimorfizmem, co oznacza, ¿e $K(\varphi)\big(K(R^\infty)\big)=K\big(R\{x_1,x_2,\ldots\}\big)$.
+St¹d $K\big(R\{x_1,x_2,\ldots\}\big)$ jest generowany przez obrazy generatorów modu³u $K(R^\infty)$, czyli elementy
+$$
+\begin{aligned}
+K(\varphi)\Big(\sj r_{ij}\big[\sk s_{ijk}e_k\big]\Big)&=\sj r_{ij} K(\varphi)\Big(\big[\sk s_{ijk}e_k\big]\Big)=\\
+&=\sj r_{ij}\big[\sk s_{ijk} \varphi(e_k)\big]=\sj r_{ij}\big[\sk s_{ijk} x_k\big],
+\end{aligned}
+$$
+gdzie $i\in I$. Oznacza to, ¿e
+\begin{equation}\label{eq2}
+K\big(R\{x_1,x_2,\ldots\}\big)=R\Big\{\underset{j}{\sum}r_{ij}\big[\underset{k}{\sum}s_{ijk}x_k\big]\;;\;i\in I\Big\}.
+\end{equation}
+W Przyk³adzie \ref{ex1} rozwa¿aliœmy system prosty $\{X_\alpha,f^\alpha_\beta\}$ nad zbiorem skierowa\-nym $S$ wszystkich co najwy¿ej przeliczalnych podzbiorów zbioru $X$. Przypomnijmy, ¿e jeœli $\alpha\in S$ oraz $\alpha=X'$, to przez $X_\alpha$ oznaczamy podmodu³ $RX'$. Jeœli $\beta\in S$ oraz $\alpha\leq\beta$, to $X_\alpha\subset X_\beta$ i $R$-homomorfizm $f^\alpha_\beta:X_\alpha\ra X_\beta$ okreœlamy jako w³o¿enie. \\Pokazaliœmy, ¿e $X=\underset{\alpha}{\bigcup}X_\alpha$ wraz z w³o¿eniami $f^\alpha:X_\alpha\ra X$ jest granic¹ prost¹ tego systemu.
+Zauwa¿my, ¿e je¿eli $X_\alpha\!\!\subset\!\!X$, to $\F(f^\alpha)\!\!:\!\!\F(X_\alpha)\!\!\ra\!\!\F(X)$, $\F(f^\alpha)\big(\underset{i}{\sum}r_i [x_i]\big)=\underset{i}{\sum}r_i [x_i]$ jest monomorfizmem, mo¿na wiêc uznaæ, ¿e $\F(X_\alpha)\subset$\\$\subset\F(X)$. Podobnie $K(f^\alpha):K(X_\alpha)\ra K(X)$ jest monomorfizmem jako og\-ra\-ni\-cze\-nie $\F(f^\alpha)$, zatem mo¿emy przyj¹æ, ¿e $K(X_\alpha)\subset K(X)$. Z za³o¿enia mamy wiêc
+$$
+\begin{aligned}
+K(X)&=\Lim K(X_\alpha)=\bigcup_\alpha K(f^\alpha)\big(K(X_\alpha)\big)=\bigcup_\alpha K(X_\alpha)=\\
+&=\bigcup_{x_1,x_2,\,\ldots\,\in X}K\big(R\{x_1,x_2,\,\ldots\,\}\big)=R\Big\{\underset{j}{\sum}r_{ij}\big[\underset{k}{\sum}s_{ijk}x_k\big]\;;\;i\in I,x_k\in X\Big\}.
+\end{aligned}
+$$
+Zatem
+$$
+\begin{aligned}
+A(X,Y)&=A_K(X,Y)=\big\{\alpha\in\map(X,Y)\;;\;\bar{\alpha}\big(K(X)\big)=0\big\}=\\
+&=\Big\{\alpha\in\map(X,Y)\;;\;\underset{i\in I}{\forall}\;\underset{x_k\in X}{\forall}\;\bar{\alpha}\Big(\sj r_{ij}\big[\sk s_{ijk} x_k\big]\Big)=0\Big\}=\\
+&=\Big\{\alpha\in\map(X,Y)\;;\;\underset{i\in I}{\forall}\;\underset{x_k\in X}{\forall}\;\sj r_{ij}\alpha\big(\sk s_{ijk}x_k\big)=0\Big\},
+\end{aligned}
+$$
+co oznacza, ¿e $A$ jest ED-funktorem. Przy tym, jak widzieliœmy, relacje s¹ wyznaczone jednoznacznie przez generatory nad $K(R^\infty)$, czyli ostatnia czêœæ tezy jest te¿ spe³niona.\cnd
+\vskip6pt\noindent Mo¿na pokazaæ (\cite{4}, Wniosek 3.2.2), ¿e jeœli podfunktor $K$ funktora $\F$ zachowuje epimorfizmy, to zachowuje te¿ granice proste. Wobec tego w powy¿szym twierdzeniu mo¿na opuœciæ za³o¿enia o zachowywaniu granic prostych. Dowód tego faktu wymaga jednak u¿ycia metod, które wykraczaj¹ poza granice tej pracy.
+
+\baselineskip15pt \addcontentsline{toc}{chapter}{Bibliografia}
+\begin{thebibliography}{9}
+\bibitem[1]{1} M. F. Atiyah, I. G. MacDonald, \emph{Introduction to commutative
+algebra}, Addison-Wesley, Reading, Mass. 1969 (istnieje przek³ad rosyjski: Mir, Moskwa 1972)
+\bibitem[2]{2} S. Balcerzyk, \emph{Algebra homologiczna}, PWN,
+Warszawa 1972
+\bibitem[3]{3} A. Prószyñski, \emph{Forms and mappings. I: Generalities}, Fund. Math. 122 (1984) 219-235
+\bibitem[4]{4} A. Prószyñski, \emph{Odwzorowania wy¿szych stopni}, Wydawnictwo Uczelniane WSP w Bydgoszczy, Bydgoszcz 1987
+\bibitem[5]{5} A. Prószyñski, \emph{Equationally definable functors and polynomial mappings}, Journal of Pure and Applied Algebra 56 (1989) 59-84
+\bibitem[6]{6} N. Roby, \emph{Lois polyn\^{o}mes et lois formelles en th\'{e}orie des modules}, Ann. Sci. \'{E}cole Norm. Sup. 80 (1963) 213-348
+\bibitem[7]{7} Z. Semadeni, A. Wiweger, \emph{Wstêp do teorii kategorii i funktorów}, PWN, Warszawa 1978
+
+
+\end{thebibliography}
+%\printindex
+
+
+
+\end{document}
